@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
           list_id: 1,
           name: 'Yaletown Brew Pub'
         }),
-        knex('restaurtants').insert({
+        knex('restaurants').insert({
           user_id: 2,
           list_id: 1,
           name: 'Mc.Donalds'
