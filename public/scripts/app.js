@@ -2,6 +2,7 @@ $(() => {
   $('.dropdown-menu').dropdown();
 
   $('.email').focus();
+  $('#email').focus();
 
   $.ajax({
     method: "GET",
