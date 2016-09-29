@@ -15,39 +15,22 @@ $(() => {
   };
 
   function append_to_list(user_item) {
-    $("<div>").text(user_item.first_name).appendTo($("body"));
+    $("<div>").text(user_item.item).appendTo($("container"));
   };
 
   function create_list(list) {
-
     let $container = $("<article>").addClass("list");
     let $header = $("<header />");
-
     let $name = $('<span class = "name">' + list.name + '</span>');
     let $list_items = $('<div class = "list_items">' + list.items + '</div>');
 
     ($header).append($name);
-
     ($container).append($header, $list_items);
 
     return $container;
-  }
+  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
@@ -78,24 +61,4 @@ $(() => {
 //     }
 //   });
 
-// });
 
-
-
-// $(() => {
-
-// (function load_lists () {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users",
-//     success: append_to_list
-//   })
-// }) ();
-
-
-
-
-
-
-
-// });
