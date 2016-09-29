@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  return knex('lists')//.del()
+  return knex('lists').del()
     .then(function () {
       return Promise.all([
 
