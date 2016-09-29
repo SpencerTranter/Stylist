@@ -20,7 +20,7 @@ const session     = require('express-session');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
-const itemsRoutes = require("./routes/items");
+const itemsRoutes = require("./routes/items"); // problem
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -42,13 +42,17 @@ app.use(express.static("public"));
 
 //initializing passport authentication with middleware
 app.use(require('cookie-parser')());
-app.use(session({ secret: 'batman rules', resave: false}));
+app.use(session({
+    secret: 'batman rules',
+    proxy: true,
+    resave: true,
+    saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
-app.use("/", itemsRoutes(knex));
+app.use("/", itemsRoutes(knex)); // probelm
 app.use("/db/methods/users", knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
