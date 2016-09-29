@@ -8,14 +8,18 @@ body {
     margin: 0 auto;
     h1 {
       color: white;
-      font-size: 10em;
-      text-align: center;
+      font-size: 12em;
     }
     #list_title {
       color: #FFC5C5;
     }
-    #search {
-      width: 500px;
+  }
+
+  .lists{
+    margin-top: 50px;
+    text-align: center;
+    ul {
+      border: 1px solid black;
     }
   }
 }

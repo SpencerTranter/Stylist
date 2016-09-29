@@ -7748,14 +7748,18 @@ body header {
 
 body header h1 {
   color: white;
-  font-size: 10em;
-  text-align: center;
+  font-size: 12em;
 }
 
 body header #list_title {
   color: #FFC5C5;
 }
 
-body header #search {
-  width: 500px;
+body .lists {
+  margin-top: 50px;
+  text-align: center;
+}
+
+body .lists ul {
+  border: 1px solid black;
 }
