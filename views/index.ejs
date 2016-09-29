@@ -53,44 +53,48 @@
           <div class="col-md-3">
             Restaurants
             <ul class="list-unstyled">
-              <li>Item 1</li>
-              <li>Item 2</li>
+            <% all.forEach(function(item) {  %>
+            <%  if (item.type === 'book') {  %>
+              <li> <%= item.name %> </li>
+            <%  } %>
+            <% }) %>
             </ul>
           </div>
           <div class="col-md-3">
             Movies
             <ul class="list-unstyled">
-              <li>Item 1</li>
-              <li>Item 2</li>
+            <% all.forEach(function(item) {  %>
+            <%  if (item.type === 'restaurant') {  %>
+              <li> <%= item.name %> </li>
+            <%  } %>
+            <% }) %>
             </ul>
           </div>
           <div class="col-md-3">
             Products
             <ul class="list-unstyled">
-              <li>Item 1</li>
-              <li>Item 2</li>
+            <% all.forEach(function(item) {  %>
+            <%  if (item.type === 'purchase') {  %>
+              <li> <%= item.name %> </li>
+            <%  } %>
+            <% }) %>
             </ul>
           </div>
           <div class="col-md-3">
             Books
             <ul class="list-unstyled">
-              <li>Item 1</li>
-              <li>Item 2</li>
+              <% all.forEach(function(item) {  %>
+              <%  if (item.type === 'movie') {  %>
+                <li> <%= item.name %> </li>
+              <%  } %>
+              <% }) %>
             </ul>
           </div>
         </div>
       </div>
     </div>
-   <div>
-      <ul>
-      <% movies.forEach(function(movie) {  %>
-        <li> <%= movie.id %> </li>
-        <li> <%= movie.user_id %> </li>
-        <li> <%= movie.type %> </li>
-        <li> <%= movie.name %> </li>
-      <% }) %>
 
-      </ul>
-    </div>
+
+
   </body>
 </html>
