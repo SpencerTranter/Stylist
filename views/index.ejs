@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- javascript -->
+    <script type="text/javascript" src="/vendor/underscore-min.js"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -81,15 +82,46 @@
       </div>
     </div>
    <div>
-      <ul>
-      <% movies.forEach(function(movie) {  %>
-        <li> <%= movie.id %> </li>
-        <li> <%= movie.user_id %> </li>
-        <li> <%= movie.type %> </li>
-        <li> <%= movie.name %> </li>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'movie') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
       <% }) %>
+    </ul>
+  </div>
 
-      </ul>
-    </div>
+  <div>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'purchase') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'restaurant') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'book') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
+      <% }) %>
+    </ul>
+  </div>
+
+
+
   </body>
 </html>
