@@ -78,6 +78,16 @@
         </div>
       </div>
     </div>
+   <div>
+      <ul>
+      <% movies.forEach(function(movie) {  %>
+        <li> <%= movie.id %> </li>
+        <li> <%= movie.user_id %> </li>
+        <li> <%= movie.type %> </li>
+        <li> <%= movie.name %> </li>
+      <% }) %>
 
+      </ul>
+    </div>
   </body>
 </html>
