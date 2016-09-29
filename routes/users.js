@@ -14,5 +14,10 @@ module.exports = (knex) => {
     });
   });
 
+
+  // router.get('/list', (req, res) => {
+  //   res.end('Hello');
+  // }) // /api/users/list
+
   return router;
 }

@@ -22,5 +22,12 @@
         </form>
       </header>
     </div>
+    <div>
+      <ul>
+      <% users.forEach(function(user) {  %>
+        <li><pre><%= JSON.stringify(user, null, "\t") %></pre></li>
+      <% }) %>
+      </ul>
+    </div>
   </body>
 </html>

@@ -41,8 +41,37 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  knex
+    .select(['*'])
+    .from("lists")
+    .limit(10)
+    .then((results) => {
+      res.render("index", {
+        users: results
+      })
+    })
+    .catch(error => {
+      res.end(error.message);
+    })
+    ;
 });
+
+app.get("/", (req, res) => {
+  knex
+    .select(['id', 'email', 'first_name','last_name'])
+    .from("users")
+    .limit(10)
+    .then((results) => {
+      res.render("index", {
+        users: results
+      })
+    })
+    .catch(error => {
+      res.end(error.message);
+    })
+    ;
+});
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
