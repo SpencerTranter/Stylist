@@ -1,4 +1,6 @@
 $(() => {
+  $('.dropdown-menu').dropdown();
+
   $.ajax({
     method: "GET",
     url: "/api/users",
@@ -29,6 +31,8 @@ $(() => {
 
     return $container;
   };
+
+
 
 });
 

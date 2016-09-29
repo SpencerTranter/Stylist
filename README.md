@@ -36,3 +36,7 @@
 3. Quit psql shell ($ \q)
 4. Run ($ knex migrate:latest) then ($ npm run knex seed:run)
 5. Check that it worked in psql shell
+
+## Style
+- If .css is not compiled from sass -> npm run sass to compile
+- Bootstrap is being referenced by a symbolic link in the vendor folder aka don't touch the bootstrap-sass folder in your node modules
