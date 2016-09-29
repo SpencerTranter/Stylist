@@ -1,6 +1,8 @@
 $(() => {
   $('.dropdown-menu').dropdown();
 
+  $('.email').focus();
+
   $.ajax({
     method: "GET",
     url: "/api/users",

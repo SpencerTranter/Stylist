@@ -7763,3 +7763,7 @@ body .lists {
 body .lists ul {
   border: 1px solid black;
 }
+
+body .login {
+  width: 30%;
+}
