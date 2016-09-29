@@ -30,9 +30,9 @@
 
 ## Seeding data
 
-1. Go into PSQL ($ PSQL -d <some database>) cannot be the database used for our midterm
+1. Go into psql ($ psql -d <some database>) cannot be the database used for our midterm
 2. Remove the current database for this project ($ DROP DATABASE <midterm database> ;)
 3. Create new midterm database ($ CREATE DATABASE <midterm database> ;)
-3. Quit PSQL shell ($ \q)
+3. Quit psql shell ($ \q)
 4. Run ($ knex migrate:latest) then ($ npm run knex seed:run)
-5. Check that it worked in PSQL shell
+5. Check that it worked in psql shell
