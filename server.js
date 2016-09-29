@@ -13,6 +13,9 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
+const passport    = require('passport');
+const cookieParser= require('cookie-parser');
+const session     = require('express-session');
 
 
 // Seperated Routes for each Resource
@@ -37,11 +40,18 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+//initializing passport authentication with middleware
+app.use(require('cookie-parser')());
+app.use(session({ secret: 'batman rules', resave: false}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 app.use("/", itemsRoutes(knex));
 app.use("/db/methods/users", knex);
 require("./routes/index")(app, knex);
+require("./routes/login")(app, knex, passport);
 
 
 
