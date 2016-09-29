@@ -1,7 +1,21 @@
-body {
-  background-color: #EEE;
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-  h1 {
-    color: #244751;
+body {
+  background-color: #59CDCD;
+  font-family: 'Monda', Arial, sans-serif;
+  header {
+    width: 75%;
+    margin: 0 auto;
+    h1 {
+      color: white;
+      font-size: 10em;
+      text-align: center;
+    }
+    #list_title {
+      color: #FFC5C5;
+    }
+    #search {
+      width: 500px;
+    }
   }
 }
