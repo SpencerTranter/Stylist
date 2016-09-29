@@ -7,14 +7,28 @@ const router  = express.Router();
 module.exports = (knex) => {
   const userMethods = require('../db/methods/items.js')(knex);
 
-  router.get("/", (req, res) => {
-    userMethods.getMovies(1, (err, movies) => {
+
+//takes all items and create a function to iterate through each 'type' before rendering each one to html
+
+router.get('/', (req, res) => {
+    userMethods.getAll(1, (err, all) => {
+      console.log(all);
       if (err) return console.log(err);
         res.render("index", {
-          movies: movies
+          all: all
         })
     })
-  });
+});
+
+
+  // router.get("/", (req, res) => {
+  //   userMethods.getBooks(1, (err, books) => {
+  //     if (err) return console.log(err);
+  //       res.render("index", {
+  //         books: books
+  //     })
+  //   })
+  // });
 
   return router;
 

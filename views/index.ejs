@@ -79,15 +79,17 @@
       </div>
     </div>
    <div>
-      <ul>
-      <% movies.forEach(function(movie) {  %>
-        <li> <%= movie.id %> </li>
-        <li> <%= movie.user_id %> </li>
-        <li> <%= movie.type %> </li>
-        <li> <%= movie.name %> </li>
+    <ul>
+      <% all.forEach(function(item) {  %>
+        <li> <%= item.id %> </li>
+        <li> <%= item.user_id %> </li>
+        <li> <%= item.type %> </li>
+        <li> <%= item.name %> </li>
       <% }) %>
+    </ul>
+  </div>
 
-      </ul>
-    </div>
+
+
   </body>
 </html>
