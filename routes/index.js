@@ -8,7 +8,10 @@ module.exports = (app, knex) => {
   const itemMethods = require('../db/methods/items.js')(knex);
 
 app.get("/", (req, res) => {
-  if (!req.user) res.redirect('/login');
+  if (!req.user){
+    res.redirect('/login');
+    return;
+  }
     itemMethods.getAll(req.user.id, (err, all) => {
       console.log(all);
       if (err) return console.log(err);

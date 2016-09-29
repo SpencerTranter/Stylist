@@ -20,7 +20,7 @@
             <div class="col-md-4"></div>
             <!-- inline form to create an account -->
             <div class="col-md-4">
-              <form class="form-inline">
+              <form action="/users/new" method="post" class="form-inline">
                 <div class="form-group">
                   <label for="email-input">Email</label>
                   <input type="text" class="form-control" name="email" id="email" placeholder="John_Doe@email.com">
@@ -28,6 +28,14 @@
                 <div class="form-group">
                   <label for="password-input">Password</label>
                   <input type="text" class="form-control" name="password" id="password">
+                </div>
+                <div class="form-group">
+                  <label for="password-input">First Name</label>
+                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="John">
+                </div>
+                <div class="form-group">
+                  <label for="password-input">Last Name</label>
+                  <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Doe">
                 </div>
                 <button type="submit" class="btn btn-default">Create account</button>
               </form>

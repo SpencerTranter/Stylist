@@ -51,11 +51,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+//app.use("/api/users", usersRoutes(knex));
 // app.use("/", itemsRoutes(knex)); // probelm
 app.use("/db/methods/users", knex);
+require("./routes/users")(app, knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
+
 
 
 
