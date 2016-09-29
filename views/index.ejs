@@ -83,10 +83,39 @@
    <div>
     <ul>
       <% all.forEach(function(item) {  %>
-        <li> <%= item.id %> </li>
-        <li> <%= item.user_id %> </li>
-        <li> <%= item.type %> </li>
+      <%  if (item.type === 'movie') {  %>
         <li> <%= item.name %> </li>
+      <%  } %>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'purchase') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'restaurant') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <% all.forEach(function(item) {  %>
+      <%  if (item.type === 'book') {  %>
+        <li> <%= item.name %> </li>
+      <%  } %>
       <% }) %>
     </ul>
   </div>

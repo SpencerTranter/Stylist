@@ -10,15 +10,6 @@ module.exports = (knex) => {
 
 //takes all items and create a function to iterate through each 'type' before rendering each one to html
 
-router.get('/', (req, res) => {
-    userMethods.getAll(1, (err, all) => {
-      console.log(all);
-      if (err) return console.log(err);
-        res.render("index", {
-          all: all
-        })
-    })
-});
 
 
   // router.get("/", (req, res) => {
