@@ -1,56 +1,38 @@
 'use strict';
-const ObjectId = require('mongodb').ObjectID;
+module.exports = (knex) => ({
 
-exports.insertIOU = function(db, iou, cb) {
-  db.collection('ious').insertOne(iou, (err, result) => {
-    if (err) {
-      return cb(err);
-    }
-    return cb(null, result);
-  });
+getLists: function(cb){
+  knex('lists')
+  .select('*')
+  .where('user_id', '=', user_id)
+  .asCallback(cb);
+},
+
+getUserLists: function(user_id, cb){
+  knex('lists')
+  .select('*')
+  .where('user_id', '=', user_id)
+  .asCallback(cb);
+},
+
+getList: function(list_id, cb) {
+  knex('lists')
+  .select('*')
+  .where('id', '=', list_id)
+  .asCallback(cb);
+},
+
+insertList: function(list, cb) {
+  knex('lists')
+  .insert(list)
+  .asCallback(cb);
+},
+
+deleteList: function(list_id, cb) {
+  knex('lists')
+  .where('id', '=', list_id)
+  .del()
+  .asCallback(cb);
 }
 
-exports.updateIOU = function(db, iou, cb) {
-  db.collection('ious').updateOne(
-    { '_id': new ObjectId(iou.id) },
-    {
-      $set: {
-        friendID: iou.friend,
-        title: iou.title,
-        description: iou.description,
-        dateDue: iou.dateDue
-      }
-    }, (err, result) => {
-      if (err) {
-        return cb(err);
-      }
-      return cb(null, result);
-  });
-}
-
-exports.deleteIOU = function(db, iou, cb) {
-  db.collection('ious').remove({ '_id': new ObjectId(iou) }, (err, result) => {
-    if (err) {
-      return cb(err);
-    }
-    return cb(null, result);
-  });
-}
-
-exports.getIOUs = function(db, cb) {
-  db.collection('ious').find().toArray((err, result) => {
-    if (err) {
-      return cb(err);
-    }
-    return cb(null, result);
-  });
-}
-
-exports.getIOU = function(db, iou, cb) {
-  db.collection('ious').findOne({ '_id': new ObjectId(iou.id) }, (err, result) => {
-    if (err) {
-      return cb(err);
-    }
-    return cb(null, result);
-  });
-}
+})
