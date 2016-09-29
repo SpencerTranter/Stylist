@@ -14,13 +14,55 @@
 
   <body>
     <div class="container-fluid">
-      <header class="jumbotron">
-        <h1>sty<span id="list_title">list</span></h1>
-        <form action="/" method="POST">
-          <textarea id="search" name="search" value="" placeholder="What would you like to do?"></textarea>
-          <input type="submit" value="search">
-        </form>
+    <!-- Header includes title and search field -->
+      <header>
+        <h1 class="text-center">sty<span id="list_title">list</span></h1>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-md-4 -->
+          <div class="col-md-4"></div>
+        </div>
       </header>
+      <!-- start divs with list objects -->
+      <div class="lists">
+        <div class="row">
+          <div class="col-md-3">
+            Restaurants
+            <ul class="list-unstyled">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            Movies
+            <ul class="list-unstyled">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            Products
+            <ul class="list-unstyled">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            Books
+            <ul class="list-unstyled">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
