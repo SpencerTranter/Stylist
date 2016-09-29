@@ -14,6 +14,13 @@ getUser: function(user_id, cb) {
   .asCallback(cb);
 },
 
+getUserByEmail: function(username, cb) {
+  knex('users')
+  .select('*')
+  .where('email', '=', username)
+  .asCallback(cb);
+},
+
 insertUser: function(user, cb) {
   knex('users')
   .insert(user)
