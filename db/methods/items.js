@@ -35,11 +35,26 @@ module.exports = (knex) => ({
 //   .asCallback(cb);
 // },
 
-getMovies: function(user_id, cb) {
+getAll: function(user_id, cb) {
   knex.select('*')
     .from('lists')
     .leftJoin('items', 'lists.id', 'items.id')
     .where('lists.user_id', '=', user_id).asCallback(cb);
 }
+// getMovies: function(user_id, cb) {
+//   knex.select('*')
+//     .from('lists')
+//     .leftJoin('items', 'lists.id', 'items.id')
+//     .where('lists.user_id', '=', user_id)
+//     .andWhere('items.type', '=', 'movie').asCallback(cb);
+// },
+
+// getBooks: function(user_id, cb) {
+//   knex.select('*')
+//     .from('lists')
+//     .leftJoin('items', 'lists.id', 'items.id')
+//     .where('lists.user_id', '=', user_id)
+//     .andWhere('items.type', '=', 'book').asCallback(cb);
+// }
 
 })

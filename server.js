@@ -20,7 +20,7 @@ const session     = require('express-session');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
-const itemsRoutes = require("./routes/items"); // problem
+// const itemsRoutes = require("./routes/items"); // problem
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -52,7 +52,7 @@ app.use(passport.session());
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
-app.use("/", itemsRoutes(knex)); // probelm
+// app.use("/", itemsRoutes(knex)); // probelm
 app.use("/db/methods/users", knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
