@@ -5,7 +5,8 @@ const router  = express.Router();
 
 
 module.exports = (knex) => {
-  const userMethods = require('../db/methods/users.js')(knex);
+  //const userMethods = require('../db/methods/users.js')(knex);
+
 
   // router.get("/", (req, res) => {
   //   userMethods.getUser(1, (err, user) => {
@@ -23,6 +24,7 @@ module.exports = (knex) => {
   //       res.json(results);
   //   });
   // });
+
 
 
   return router;
