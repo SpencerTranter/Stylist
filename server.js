@@ -38,39 +38,10 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+app.use("/db/methods/users", knex);
+require("./routes/index")(app, knex);
 
-// Home page
-app.get("/", (req, res) => {
-  knex
-    .select(['*'])
-    .from("lists")
-    .limit(10)
-    .then((results) => {
-      res.render("index", {
-        users: results
-      })
-    })
-    .catch(error => {
-      res.end(error.message);
-    })
-    ;
-});
 
-app.get("/", (req, res) => {
-  knex
-    .select(['id', 'email', 'first_name','last_name'])
-    .from("users")
-    .limit(10)
-    .then((results) => {
-      res.render("index", {
-        users: results
-      })
-    })
-    .catch(error => {
-      res.end(error.message);
-    })
-    ;
-});
 
 
 app.listen(PORT, () => {
