@@ -1,5 +1,6 @@
 "use strict";
-var https = require('https');
+const request = require('request');
+const https = require('https');
 const express = require('express');
 
 module.exports = (app, knex) => {
@@ -8,9 +9,9 @@ module.exports = (app, knex) => {
 
     let search_text = req.body.search;
 
-     //let booksPromise = getBooks(search_text);
-     //let restaurantsPromise = getRestaurants(search_text);
-     //let purchasesPromise = getPurchases(search_text);
+     let booksPromise = getBooks(search_text);
+     let restaurantsPromise = getRestaurants(search_text);
+     let purchasesPromise = getPurchases(search_text);
      let moviesPromise = getMovies(search_text);
 
 
@@ -20,94 +21,101 @@ module.exports = (app, knex) => {
 
 
 function getBooks(search_text) {
+  let endpoint = `https://www.googleapis.com`;
+
   let options = {
-      host: 'www.googleapis.com',
-      path: `/books/v1/volumes?q=${search_text}`
+      url: `${endpoint}/books/v1/volumes?q=${search_text}`,
+      json: true
     }
 
-    let callback = function(response) {
-      let str = '';
-      //another chunk of data has been recieved, so append it to `str`
-      response.on('data', function (chunk) {
-        str += chunk;
-      });
-      //the whole response has been recieved here so parse into object
-      response.on('end', function () {
-        JSON.parse(str);
-      });
-    }
-    let https_req = https.request(options, callback);
-    https_req.end();
+    var req = request(options, function(err, data) {
+      if (err) {
+        console.log(err);
+        return false;
+      }
+      if(data.body.items === undefined){
+        console.log("No books");
+        return;
+      }
+      console.log("Books:    ", data.body.items[0].volumeInfo.title);
 
-   // return ;
+    });
+
+    return ;
 }
 
 function getRestaurants(search_text) {
+  let endpoint = `https://developers.zomato.com`;
+
   let options = {
-      host: `developers.zomato.com`,
-      path: `/api/v2.1/search?entity_id=256&entity_type=city&q=${search_text}`,
-      headers: {'user_key': 'ff6827f64eb26558d0d407560246525b'}
+      url: `${endpoint}/api/v2.1/search?entity_id=256&entity_type=city&q=${search_text}`,
+      headers: {'user_key': 'ff6827f64eb26558d0d407560246525b'},
+      json: true
     }
 
-    let callback = function(response) {
-      let str = '';
-      //another chunk of data has been recieved, so append it to `str`
-      response.on('data', function (chunk) {
-        str += chunk;
-      });
-      //the whole response has been recieved here so parse into object
-      response.on('end', function () {
-        console.log(JSON.parse(str));
-      });
-    }
-    let https_req = https.request(options, callback);
-    https_req.end();
+    var req = request(options, function(err, data) {
+      if (err) {
+        console.log(err);
+        return false;
+      }
+      if(data.body.restaurants[0] === undefined){
+        console.log("No restaurants");
+        return;
+      }
+      console.log("Foood:    ", data.body.restaurants[0].restaurant.name);
 
-   // return ;
+    });
+
+
+    return ;
 }
 
 function getPurchases(search_text) {
+  let endpoint = `https://api.walmartlabs.com`;
+
   let options = {
-      host: `api.walmartlabs.com`,
-      path: `/v1/search?apiKey=6b63jzr3ugubze3q4z38e6t9&query=${search_text}`
+      url: `${endpoint}/v1/search?apiKey=6b63jzr3ugubze3q4z38e6t9&query=${search_text}`,
+      json: true
     }
 
-    let callback = function(response) {
-      let str = '';
-      //another chunk of data has been recieved, so append it to `str`
-      response.on('data', function (chunk) {
-        str += chunk;
-      });
-      //the whole response has been recieved here so parse into object
-      response.on('end', function () {
-        console.log(JSON.parse(str));
-      });
-    }
-    let https_req = https.request(options, callback);
-    https_req.end();
+    var req = request(options, function(err, data) {
+      if (err) {
+        console.log(err);
+        return false;
+      }
+      if(data.body.items === undefined){
+        console.log("No purcheses");
+        return;
+      }
+      console.log("Stuff:    ", data.body.items[0].name);
 
-   // return ;
+    });
+
+
+    return ;
 }
 
 function getMovies(search_text) {
+  let endpoint = `https://api.themoviedb.org`;
   let options = {
-      host: `api.themoviedb.org`,
-      path: `/3/search/movie?api_key=27ad1cee7d8982e2ea91346185032d49&language=en-US&query=${search_text}`
+      url: `${endpoint}/3/search/movie?api_key=27ad1cee7d8982e2ea91346185032d49&language=en-US&query=${search_text}`,
+      json: true
     }
 
-    let callback = function(response) {
-      let str = '';
-      //another chunk of data has been recieved, so append it to `str`
-      response.on('data', function (chunk) {
-        str += chunk;
-      });
-      //the whole response has been recieved here so parse into object
-      response.on('end', function () {
-        console.log(JSON.parse(str));
-      });
-    }
-    let https_req = https.request(options, callback);
-    https_req.end();
 
-   // return ;
+    var req = request(options, function(err, data) {
+      if (err) {
+        console.log(err);
+        return false;
+      }
+      if(data.body.results[0] === undefined){
+        console.log("No movies");
+        return;
+      }
+      console.log("Movies:    ", data.body.results[0].title);
+
+    });
+
+
+    return ;
 }
