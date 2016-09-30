@@ -17,7 +17,7 @@ $(function(){
         url: '/routes/api',
         data: {search: search_text},   //$("#main_search").serialize(),
         success: function(data) {
-          console.log("I'm a movie", data);
+          console.log("Search results (movie, purchases, restaurant, book)", data);
         }
       });
   });

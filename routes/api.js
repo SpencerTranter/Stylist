@@ -23,8 +23,8 @@ function getBooks(search_text) {
   return new Promise(function(resolve, reject) {
     let endpoint = `https://www.googleapis.com`;
     let options = {
-        url: `${endpoint}/books/v1/volumes?q=${search_text}`,
-        json: true
+      url: `${endpoint}/books/v1/volumes?q=${search_text}`,
+      json: true
     }
     request(options, function(err, data) {
       if (err) {
@@ -42,9 +42,9 @@ function getRestaurants(search_text) {
   return new Promise(function(resolve, reject) {
     let endpoint = `https://developers.zomato.com`;
     let options = {
-        url: `${endpoint}/api/v2.1/search?entity_id=256&entity_type=city&q=${search_text}`,
-        headers: {'user_key': 'ff6827f64eb26558d0d407560246525b'},
-        json: true
+      url: `${endpoint}/api/v2.1/search?entity_id=256&entity_type=city&q=${search_text}`,
+      headers: {'user_key': 'ff6827f64eb26558d0d407560246525b'},
+      json: true
     }
     request(options, function(err, data) {
       if (err) {
@@ -65,7 +65,6 @@ function getPurchases(search_text) {
       url: `${endpoint}/v1/search?apiKey=6b63jzr3ugubze3q4z38e6t9&query=${search_text}`,
       json: true
     }
-
     request(options, function(err, data) {
       if (err) {
         reject(new Error());
@@ -84,7 +83,7 @@ function getMovies(search_text) {
     let options = {
         url: `${endpoint}/3/search/movie?api_key=27ad1cee7d8982e2ea91346185032d49&language=en-US&query=${search_text}`,
         json: true
-      }
+    }
     request(options, function(err, data) {
       if (err) {
         reject(new Error());
