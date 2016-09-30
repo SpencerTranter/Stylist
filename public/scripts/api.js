@@ -2,10 +2,12 @@
 $(function(){
 
   $("#main_search").submit(function(e) {
-      let url = "/";
-      e.preventDefault();
-
-      let search_text = $(this).find('#main_search_input').val()
+    let url = "/";
+    e.preventDefault();
+    let search_text = $(this).find('#main_search_input').val()
+    if (search_text === null || search_text === '' || /^\s+$/.test(search_text)) {
+      console.log("Failed, no input");
+    } else {
       search_text = search_text.split(' ').join('+');
       //console.log(search_text);
 
@@ -20,6 +22,7 @@ $(function(){
           conole.log(data);
         }
       });
+    }
   });
 
 });

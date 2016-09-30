@@ -18,7 +18,6 @@ module.exports = (app, knex) => {
 
 }
 
-
 function getBooks(search_text) {
   let options = {
       host: 'www.googleapis.com',
