@@ -12,7 +12,7 @@ $('.dropdown-menu').dropdown();
 
 
   function append_to_list(user_input) {
-    $("<li>").text(user_input).appendTo($(".movie"));
+    text(user_input).appendTo($("#list_container"));
   };
 
   $('#main_search').submit(function (event) {

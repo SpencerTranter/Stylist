@@ -1,6 +1,11 @@
 "use strict";
 $(function(){
 
+  function append_to_list(user_input) {
+    console.log(user_input);
+    $("<div>" + user_input + "</div>").appendTo($("#list_container"));
+  };
+
   $("#main_search").submit(function(e) {
       let url = "/";
       e.preventDefault();
@@ -18,8 +23,11 @@ $(function(){
         data: {search: search_text},   //$("#main_search").serialize(),
         success: function(data) {
           console.log("Search results (movie, purchases, restaurant, book)", data);
-        }
-      });
-  });
+          for (let i in data.search_results) {
+            append_to_list(data.search_results[i]);
+          }
 
+      }
+  });
+});
 });
