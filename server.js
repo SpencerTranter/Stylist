@@ -39,6 +39,7 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(express.static("styles"));
 
 //initializing passport authentication with middleware
 app.use(require('cookie-parser')());
