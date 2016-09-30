@@ -1,29 +1,31 @@
 "use strict";
 
 const express = require('express');
-const router  = express.Router();
+// const router  = express.Router();
 
 
-module.exports = (knex) => {
+module.exports = (app, knex) => {
   const userMethods = require('../db/methods/users.js')(knex);
 
-  // router.get("/", (req, res) => {
-  //   userMethods.getUser(1, (err, user) => {
-  //     if (err) return console.log(err);
-  //     console.log(user);
-  //   });
-  // });
+  app.get("/user/new", (req, res) => {
+    res.render("create_users");
+  });
+
+  app.post("/users/new", (req, res) => {
+    let user = {
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password
+      }
+      userMethods.insertUser(user, (err, result) => {
+        if (err) return console.log(err);
+        //userMethods.getUsers((err,result) => {
+         // console.log(result);
+          res.redirect('/login');
+        //});
+      });
+  });
+
   // return router;
-
-  // router.get("/", (req, res) => {
-  //   knex
-  //     .select("*")
-  //     .from("users")
-  //     .then((results) => {
-  //       res.json(results);
-  //   });
-  // });
-
-
-  return router;
 }

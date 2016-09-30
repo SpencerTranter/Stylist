@@ -2,6 +2,9 @@
 
 $(() => {
 
+  $('.email').focus();
+  $('#email').focus();
+
 $('.dropdown-menu').dropdown();
 
 

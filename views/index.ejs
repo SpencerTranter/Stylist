@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- javascript -->
+    <script type="text/javascript" src="/vendor/underscore-min.js"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/api.js"></script>
   </head>
 
   <body>
@@ -21,11 +23,13 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
-            <form id = "main_search" action="/" method="POST">
+
+            <form action="/" method="GET" id="main_search">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+                <input type="text" id="main_search_input" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
                   <input class="btn btn-default" type="submit" value= "Go!" ></input>
+                  <button id="main_search_button" class="btn btn-default" type="submit">Go!</button>
                 </span>
               </div>
             </form>
