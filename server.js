@@ -54,6 +54,7 @@ app.use(passport.session());
 //app.use("/api/users", usersRoutes(knex));
 // app.use("/", itemsRoutes(knex)); // probelm
 app.use("/db/methods/users", knex);
+require("./routes/api")(app);
 require("./routes/users")(app, knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
