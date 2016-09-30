@@ -27,10 +27,5 @@ module.exports = (app, knex) => {
       });
   });
 
-  // app.post("/users"), (res, req) => {
-
-  // });
-
-
   // return router;
 }
