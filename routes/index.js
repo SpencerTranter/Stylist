@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
     res.redirect('/login');
     return;
   }
-  console.log(req.session);
-    itemMethods.getAll(req.user.id, (err, all) => {
+  console.log(req.user)
+    itemMethods.getAll(req.user[0].id, (err, all) => {
       if (err) return console.log(err);
       res.render("index", {
         all: all,

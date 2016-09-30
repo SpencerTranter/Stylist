@@ -7,10 +7,7 @@ module.exports = (app, knex) => {
 
   app.post("/routes/api", (req, res) => {
     let search_text = req.body.search;
-     // let booksPromise = getBooks(search_text);
-     // let restaurantsPromise = getRestaurants(search_text);
-     // let purchasesPromise = getPurchases(search_text);
-     //let moviesPromise = getMovies(search_text);
+
     Promise.all([getMovies(search_text), getPurchases(search_text), getRestaurants(search_text), getBooks(search_text)])
     .then(function(result) {
       res.json({search_results: result});

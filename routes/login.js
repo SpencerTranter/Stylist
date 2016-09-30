@@ -3,7 +3,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const express = require('express');
-//const router  = express.Router();
 
 
 module.exports = (app, knex, passport) => {
@@ -28,12 +27,17 @@ module.exports = (app, knex, passport) => {
     }
   ))
 
+// used to serialize the user for the session
   passport.serializeUser(function(user, done) {
-    done(null, user);
+      done(null, user.id);
   });
 
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
+  // used to deserialize the user
+  passport.deserializeUser(function(id, done) {
+      userMethods.getUser(id, function(err, user) {
+        if (err) return done(null, false);
+          done(null, user);
+      });
   });
 
   app.post("/login",
@@ -47,11 +51,8 @@ module.exports = (app, knex, passport) => {
     res.render("login");
   });
 
-
-// app.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('/');
-// });
-
-//return router;
+  app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/login');
+  });
 }

@@ -51,17 +51,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Mount all resource routes
-//app.use("/api/users", usersRoutes(knex));
-// app.use("/", itemsRoutes(knex)); // probelm
 app.use("/db/methods/users", knex);
 require("./routes/api")(app);
 require("./routes/users")(app, knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
-
-
-
-
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
