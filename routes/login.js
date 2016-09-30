@@ -51,8 +51,9 @@ module.exports = (app, knex, passport) => {
     res.render("login");
   });
 
-  app.get('/logout', function(req, res) {
+  app.post('/logout', function(req, res) {
     req.logout();
-    res.redirect('/login');
+    req.session.destroy();
+    res.redirect("/login");
   });
 }
