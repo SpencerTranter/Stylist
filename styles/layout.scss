@@ -3,6 +3,7 @@
 body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
+
   header {
     width: 75%;
     margin: 0 auto;
@@ -22,17 +23,18 @@ body {
       /*border: 1px solid black;*/
     }
     .restaurants {
-      background-color: #B52626;
+      background-image: url("/pictures/restaurant.jpg");
     }
     .movies {
-      background-color: #459393;
+      background-image: url("/pictures/film2.jpg");
     }
     .products {
-      background-color: #F5CA73;
+      background-image: url("/pictures/shopping.jpg");
     }
     .books {
-      background-color: #459393;
+      background-image: url("/pictures/books2.jpg");
     }
+  }
   }
   .or {
     margin: 10px 10px;

@@ -7,9 +7,13 @@ $(() => {
 
 $('.dropdown-menu').dropdown();
 
-
-//     url: "http://www.omdbapi.com/?t=frozen&y=&plot=short&r=json",
-
+  //Passes logout call from button click to login.js
+  $('#logout_form').on('submit', function (event){
+    $.ajax({
+        url:`/logout`,
+        method: 'POST'
+    })
+  })
 
   function append_to_list(user_input) {
     text(user_input).appendTo($("#list_container"));

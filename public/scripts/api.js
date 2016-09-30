@@ -14,18 +14,11 @@ $(function(){
       let search_text = $(this).find('#main_search_input').val()
       search_text = search_text.split(' ').join('+');
 
-      if (search_text === null || search_text === '' || /^\s+$/.test(search_text)) {
-      alert("Failed: Empty form.");
-    }
-      //console.log(search_text);
-
-      // let api_url = `https://developers.zomato.com/api/v2.1/search?entity_id=256&entity_type=city&q=${search_text}`;
-      // let gapi_url = `https://www.googleapis.com/books/v1/volumes?q=${search_text}`;
 
       $.ajax({
         type: "POST",
         url: '/routes/api',
-        data: {search: search_text},   //$("#main_search").serialize(),
+        data: {search: search_text},
         success: function(data) {
           console.log("Search results (movie, purchases, restaurant, book)", data);
           for (let i in data.search_results) {

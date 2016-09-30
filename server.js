@@ -39,6 +39,7 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(express.static("styles"));
 
 //initializing passport authentication with middleware
 app.use(require('cookie-parser')());
@@ -51,16 +52,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Mount all resource routes
-//app.use("/api/users", usersRoutes(knex));
-// app.use("/", itemsRoutes(knex)); // probelm
 app.use("/db/methods/users", knex);
 require("./routes/api")(app);
 require("./routes/users")(app, knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
-require("./routes/insertItem")(app, knex);
-
-
 
 
 app.listen(PORT, () => {
