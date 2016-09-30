@@ -19,7 +19,19 @@ body {
     margin-top: 50px;
     text-align: center;
     ul {
-      border: 1px solid black;
+      /*border: 1px solid black;*/
+    }
+    .restaurants {
+      background-color: #B52626;
+    }
+    .movies {
+      background-color: #459393;
+    }
+    .products {
+      background-color: #F5CA73;
+    }
+    .books {
+      background-color: #459393;
     }
   }
   .or {
