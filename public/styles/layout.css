@@ -7761,7 +7761,23 @@ body .lists {
 }
 
 body .lists ul {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+}
+
+body .lists .restaurants {
+  background-color: #B52626;
+}
+
+body .lists .movies {
+  background-color: #459393;
+}
+
+body .lists .products {
+  background-color: #F5CA73;
+}
+
+body .lists .books {
+  background-color: #459393;
 }
 
 body .or {

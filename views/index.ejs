@@ -28,7 +28,7 @@
               <div class="input-group">
                 <input type="text" id="main_search_input" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
-                  <input class="btn btn-default" type="submit" value= "Go!" ></input>
+
                   <button id="main_search_button" class="btn btn-default" type="submit">Go!</button>
                 </span>
               </div>
@@ -53,7 +53,7 @@
       <!-- start divs with list objects -->
       <div class="lists">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 restaurants">
             Restaurants
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
@@ -64,9 +64,8 @@
             </ul>
           </div>
 
-          <section class = 'movies'>
 
-          <div class="col-md-3">
+          <div class="col-md-3 movies">
             Movies
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
@@ -76,8 +75,7 @@
             <% }) %>
             </ul>
           </div>
-          </section>
-          <div class="col-md-3">
+          <div class="col-md-3 products">
             Products
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
@@ -87,7 +85,7 @@
             <% }) %>
             </ul>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 books">
             Books
             <ul class="list-unstyled">
               <% all.forEach(function(item) {  %>

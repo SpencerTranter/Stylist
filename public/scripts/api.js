@@ -13,7 +13,7 @@ $(function(){
         url: '/routes/api',
         data: {search: search_text},
         success: function(data) {
-          conole.log(data);
+          console.log("Search results (movie, purchases, restaurant, book)", data);
         }
       });
   });
