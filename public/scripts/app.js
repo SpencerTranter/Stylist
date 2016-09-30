@@ -1,61 +1,42 @@
+'use strict';
+
 $(() => {
-  $('.dropdown-menu').dropdown();
 
-(function load () {
-  $.ajax({
-    method: "GET",
-    url: "http://www.omdbapi.com/?t=frozen&y=&plot=short&r=json",
-  })
-  .then(function(data, response) {
-    let title = data.Title;
-    console.log(title);
-    // return ajax({
-    //   url: "/search"
-    //   method: "POST",
-    //   data:
-    // })
-  })
-  .catch(function(err){
-    console.log(err);
-  });
-}) ();
+$('.dropdown-menu').dropdown();
 
-  function error_handler (err) {
-    console.error('Encountered error while performning action', err);
+
+//     url: "http://www.omdbapi.com/?t=frozen&y=&plot=short&r=json",
+
+
+  function append_to_list(user_input) {
+    $("<li>").text(user_input).appendTo($(".movie"));
   };
 
-  function append_to_list(user_item) {
-    $("<li>").text(user_item).appendTo($(".movie"));
-  };
-
-  $('.searchForm').on('submit', function (event) {
-    console.log($(this));
+  $('#main_search').submit(function (event) {
     event.preventDefault();
-    console.log(event);
+    let user_input = $(this).find("input").val();
+    console.log(user_input);
+    if (user_input === null || user_input === '' || /^\s+$/.test(user_input)) {
+      console.log("FAIL TOO SHORT");
+    } else {
+      console.log('Submitted, performing ajax call...');
+      $.ajax({
+        url:`https://api.themoviedb.org/3/search/movie?api_key=27ad1cee7d8982e2ea91346185032d49&language=en-US&query=${user_input}`,
+        method: 'GET',
+        })
+      .then(function(data, response) {
+        console.log(data.results[0].title);
+        let title = data.results[0].title;
+        console.log(title);
+        // return ajax({
+        //   url:"/",
+        //   method: GET,
 
-    let user_item = $(this).find("textarea").val();
-    let text = $(this).serialize();
-
-    // if (user_item === null || user_item === '' || /^\s+$/.test(user_item)) {
-    //   $("form.placeholder").text("Nothing to post!").css('color', 'red');
-    //   console.log("FAIL TOO SHORT");
-    // } else {
-    //   console.log('Submitted, performing ajax call...');
-    //   $.ajax({
-    //     url: '/apis',
-    //     method: 'POST',
-    //     data: $(this).serialize(),
-    //     success: append_to_list,
-    //     error: function(err) {
-    //       console.log("ajax error!", err);
-    //     }
-    //   });
-    });
+        // })
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+    };
+  });
 });
-
-
-
-
-
-
-
