@@ -23,10 +23,12 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
+
             <form action="/" method="GET" id="main_search">
               <div class="input-group">
                 <input type="text" id="main_search_input" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
+                  <input class="btn btn-default" type="submit" value= "Go!" ></input>
                   <button id="main_search_button" class="btn btn-default" type="submit">Go!</button>
                 </span>
               </div>
@@ -55,22 +57,26 @@
             Restaurants
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
-            <%  if (item.type === 'book') {  %>
-              <li> <%= item.name %> </li>
-            <%  } %>
-            <% }) %>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            Movies
-            <ul class="list-unstyled">
-            <% all.forEach(function(item) {  %>
             <%  if (item.type === 'restaurant') {  %>
               <li> <%= item.name %> </li>
             <%  } %>
             <% }) %>
             </ul>
           </div>
+
+          <section class = 'movies'>
+
+          <div class="col-md-3">
+            Movies
+            <ul class="list-unstyled">
+            <% all.forEach(function(item) {  %>
+            <%  if (item.type === 'movie') {  %>
+              <li> <%= item.name %> </li>
+            <%  } %>
+            <% }) %>
+            </ul>
+          </div>
+          </section>
           <div class="col-md-3">
             Products
             <ul class="list-unstyled">
@@ -85,7 +91,7 @@
             Books
             <ul class="list-unstyled">
               <% all.forEach(function(item) {  %>
-              <%  if (item.type === 'movie') {  %>
+              <%  if (item.type === 'book') {  %>
                 <li> <%= item.name %> </li>
               <%  } %>
               <% }) %>
