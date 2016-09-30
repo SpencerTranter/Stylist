@@ -28,9 +28,10 @@ $('.dropdown-menu').dropdown();
         method: 'GET',
         })
       .then(function(data, response) {
-        console.log(data.results[0].title);
-        let title = data.results[0].title;
-        console.log(title);
+        data.results.forEach(function(movie){
+          console.log(movie.title);
+        })
+
         // return ajax({
         //   url:"/",
         //   method: GET,
