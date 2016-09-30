@@ -22,6 +22,12 @@ app.get("/", (req, res) => {
     })
 });
 
+app.post("/insertItem", (req, res) => {
+    console.log(req.user.id);
+    console.log(req.body);
+
+  });
+
 //req.user.id grabs id grabs id
 
 return router;
