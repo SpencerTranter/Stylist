@@ -58,7 +58,7 @@ require("./routes/api")(app);
 require("./routes/users")(app, knex);
 require("./routes/index")(app, knex);
 require("./routes/login")(app, knex, passport);
-
+require("./routes/insertItem")(app, knex);
 
 
 
