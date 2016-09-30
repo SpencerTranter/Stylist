@@ -1,15 +1,18 @@
 "use strict";
 $(function(){
-  //debugger
-$("#main_search").submit(function(e) {
-    let search_text = $(this).find('#main_search_input').val()
-    console.log(search_text);
-    let url = "/";
-    e.preventDefault();
+
+  $("#main_search").submit(function(e) {
+      let url = "/";
+      e.preventDefault();
+
+      let search_text = $(this).find('#main_search_input').val()
+      search_text = search_text.split(' ').join('+');
+
+      let api_url = `https://www.googleapis.com/books/v1/volumes?q=${search_text}`;
 
       $.ajax({
         type: "GET",
-        url: 'https://www.googleapis.com/books/v1/volumes?q=harry+potter',
+        url: api_url,
         data: $("#main_search").serialize(),
         success: function(data) {
           for (var i = 0; i < data.items.length; i++) {
@@ -18,6 +21,6 @@ $("#main_search").submit(function(e) {
           }
         }
       });
-});
-
   });
+
+});
