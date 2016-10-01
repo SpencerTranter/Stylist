@@ -64,6 +64,21 @@
       <button id = 'user_choice' type='submit'>Insert!</button>
       </form>
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( ".list-unstyled.restaurants" ).sortable();
+    $( ".list-unstyled.restaurants" ).disableSelection();
+    $( ".list-unstyled.movies" ).sortable();
+    $( ".list-unstyled.movies" ).disableSelection();
+    $( ".list-unstyled.products" ).sortable();
+    $( ".list-unstyled.products" ).disableSelection();
+    $( ".list-unstyled.books" ).sortable();
+    $( ".list-unstyled.books" ).disableSelection();
+  } );
+  </script>
+
       <!-- start divs with list objects -->
       <div class="lists">
         <div class="row">
@@ -77,8 +92,6 @@
             <% }) %>
             </ul>
           </div>
-
-
           <div class="col-md-3 movies">
             <h1>Movies</h1>
             <ul class="list-unstyled movies">
