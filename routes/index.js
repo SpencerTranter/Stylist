@@ -32,12 +32,8 @@ module.exports = (app, knex) => {
       info.forEach(function(each) {
         let listType = each.type;
         let listId = each.id;
-        console.log(listType);
-        console.log(listId);
         obj[listType] = listId;
       })
-      console.log(obj);
-      console.log(obj["movies"]);
       types.forEach(function (type) {
         let lowerType = `${type.toLowerCase()}s`;
         let list_ID = obj[lowerType];
@@ -46,7 +42,6 @@ module.exports = (app, knex) => {
       // return a 200 or something after saving
     });
   });
-
   return router;
 }
 
