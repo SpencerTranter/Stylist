@@ -58,6 +58,7 @@
           </div>
         </div>
       </header>
+
       <form action="/insertItem" method='POST' id='user_choice'>
       <article id = 'list_container'></article>
       <button id = 'user_choice' type='submit'>Insert!</button>
@@ -67,7 +68,7 @@
       <div class="lists">
         <div class="row">
           <div class="col-md-3 restaurants">
-            Restaurants
+            <h1>Restaurants</h1>
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
             <%  if (item.type === 'restaurant') {  %>
@@ -79,7 +80,7 @@
 
 
           <div class="col-md-3 movies">
-            Movies
+            <h1>Movies</h1>
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
             <%  if (item.type === 'movie') {  %>
@@ -89,7 +90,7 @@
             </ul>
           </div>
           <div class="col-md-3 products">
-            Products
+            <h1>Products</h1>
             <ul class="list-unstyled">
             <% all.forEach(function(item) {  %>
             <%  if (item.type === 'purchase') {  %>
@@ -99,7 +100,7 @@
             </ul>
           </div>
           <div class="col-md-3 books">
-            Books
+            <h1>Books</h1>
             <ul class="list-unstyled">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>

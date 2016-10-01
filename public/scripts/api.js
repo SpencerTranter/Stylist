@@ -27,7 +27,7 @@ $(function(){
 
           $('#list_container').empty();
           for (let i in data.search_results) {
-            let types = ['Movie', 'Purchase', 'Restaurant', 'Book'];
+            let types = ['Restaurant', 'Movie', 'Book', 'Purchase'];
             if (data.search_results[i]) {
               append_to_list(types[i], data.search_results[i]);
             }

@@ -17,7 +17,12 @@ body {
   }
 
   .lists{
+    h1 {
+      color: white;
+    }
     margin-top: 50px;
+    color: #FFC5C5;
+    font-size: 2em;
     text-align: center;
     ul {
       /*border: 1px solid black;*/
@@ -39,5 +44,10 @@ body {
   .or {
     margin: 10px 10px;
   }
+
+  #list_container {
+    float: right;
+  }
+
 
 }
