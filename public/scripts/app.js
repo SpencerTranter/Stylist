@@ -13,7 +13,7 @@ $(() => {
         url:`/logout`,
         method: 'POST'
     })
-  })
+  });
 
   $('#user_choice').on('submit', function (event) {
     event.preventDefault();
