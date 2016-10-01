@@ -8,7 +8,7 @@ module.exports = (app, knex) => {
   app.post("/routes/api", (req, res) => {
     let search_text = req.body.search;
 
-    Promise.all([getRestaurants(search_text), getMovies(search_text), getBooks(search_text), getPurchases(search_text)])
+    Promise.all([getRestaurants(search_text), getMovies(search_text.replace(/\+/g, ' ')), getBooks(search_text), getPurchases(search_text)])
     .then(function(result) {
       res.json({search_results: result});
     });
@@ -29,7 +29,12 @@ function getBooks(search_text) {
       } else if(data.body.items === undefined){
         resolve("");
       } else {
-        resolve(data.body.items[0].volumeInfo.title);
+        for (var i = 0; i < data.body.items.length; i++) {
+          if (data.body.items[i].volumeInfo.title.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
+            resolve(data.body.items[0].volumeInfo.title);
+          }
+        }
+        resolve("");
       }
     });
   });
@@ -49,7 +54,12 @@ function getRestaurants(search_text) {
       } else if(data.body.restaurants[0] === undefined) {
         resolve("");
       } else {
-        resolve(data.body.restaurants[0].restaurant.name);
+        for (var i = 0; i < data.body.restaurants.length; i++) {
+          if (data.body.restaurants[i].restaurant.name.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
+            resolve(data.body.restaurants[i].restaurant.name);
+          }
+        }
+        resolve("");
       }
     });
   });
@@ -68,13 +78,19 @@ function getPurchases(search_text) {
       } else if(data.body.items === undefined) {
         resolve("");
       } else {
-        resolve(data.body.items[0].name);
+        for (var i = 0; i < data.body.items.length; i++){
+          if (data.body.items[i].name.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
+            resolve(data.body.items[i].name);
+          }
+        }
+        resolve("");
       }
     });
   });
 }
 
 function getMovies(search_text) {
+
   return new Promise(function(resolve, reject) {
     let endpoint = `https://api.themoviedb.org`;
     let options = {
@@ -87,9 +103,21 @@ function getMovies(search_text) {
       } else if (data.body.results[0] === undefined) {
         console.log("couldn't find it");
         resolve("");
+      } else if (data.body.results[0] === undefined) {
+        console.log("couldn't find it");
+        resolve("");
       } else {
-        resolve(data.body.results[0].title);
+        // console.log(data.body.results[0].title.indexOf(search_text));
+        for (var i = 0; i < data.body.results.length; i++) {
+          if (data.body.results[i].title.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
+            resolve(data.body.results[i].title);
+          }
+        }
+        resolve("");
       }
+
+
+
     });
   });
 }
