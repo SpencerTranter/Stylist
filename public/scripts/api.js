@@ -1,9 +1,9 @@
 "use strict";
 $(function(){
 
-  function append_to_list(user_input) {
+  function append_to_list(type, user_input) {
     console.log(user_input);
-    $("<div>" + user_input + "</div>").appendTo($("#list_container"));
+    $("<div>" + type + ":" + user_input + "</div>").appendTo($("#list_container"));
   };
 
   $("#main_search").submit(function(e) {
@@ -23,8 +23,11 @@ $(function(){
         data: {search: search_text},   //$("#main_search").serialize(),
         success: function(data) {
           console.log("Search results (movie, purchases, restaurant, book)", data);
+
+          $('#list_container').empty();
           for (let i in data.search_results) {
-            append_to_list(data.search_results[i]);
+            let types = ["movies", "purchases", "restaurant", "books"];
+            append_to_list(types[i], data.search_results[i]);
           }
 
       }
