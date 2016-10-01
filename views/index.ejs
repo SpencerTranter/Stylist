@@ -68,8 +68,22 @@
       <!-- start divs with list objects -->
       <div class="lists">
         <div class="row">
-          <div class="col-md-3 restaurants">
+          <div class="col-md-3 headings">
             <h1>Restaurants</h1>
+          </div>
+          <div class="col-md-3 headings">
+            <h1>Movies</h1>
+          </div>
+          <div class="col-md-3 headings">
+            <h1>Products</h1>
+          </div>
+          <div class="col-md-3 headings">
+            <h1>Books</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 restaurants">
+            <ul class="list-unstyled">
             <ul class="list-unstyled restaurants">
             <% all.forEach(function(item) {  %>
             <%  if (item.type === 'restaurant') {  %>
@@ -81,6 +95,7 @@
 
 
           <div class="col-md-3 movies">
+            <ul class="list-unstyled">
             <h1>Movies</h1>
             <ul class="list-unstyled movies">
             <% all.forEach(function(item) {  %>
@@ -91,6 +106,7 @@
             </ul>
           </div>
           <div class="col-md-3 products">
+            <ul class="list-unstyled">
             <h1>Products</h1>
             <ul class="list-unstyled products">
             <% all.forEach(function(item) {  %>
@@ -101,6 +117,7 @@
             </ul>
           </div>
           <div class="col-md-3 books">
+            <ul class="list-unstyled">
             <h1>Books</h1>
             <ul class="list-unstyled books">
               <% all.forEach(function(item) {  %>

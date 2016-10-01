@@ -16,7 +16,7 @@ $(function(){
     search_text = search_text.split(' ').join('+');
 
     if (search_text === null || search_text === '' || /^\s+$/.test(search_text)) {
-      alert("Failed: Empty form.");
+      return;
     }
 
     $.ajax({
@@ -34,10 +34,13 @@ $(function(){
           if (data.search_results[i]) {
             show_to_user(types[i], data.search_results[i]);
           }
+          console.log("Array", data.search_results);
         }
 
         }
     });
   });
+
+
 });
 
