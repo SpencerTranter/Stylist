@@ -14,10 +14,10 @@ getUser: function(user_id, cb) {
   .asCallback(cb);
 },
 
-getUserByEmail: function(username, cb) {
+getUserByEmail: function(email, cb) {
   knex('users')
   .select('*')
-  .where('email', '=', username)
+  .where('email', '=', email)
   .asCallback(cb);
 },
 
