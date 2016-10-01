@@ -17,13 +17,18 @@ body {
   }
 
   .lists{
-    h1 {
-      color: white;
-    }
     margin-top: 50px;
     color: #FFC5C5;
     font-size: 2em;
     text-align: center;
+    h1 {
+      color: white;
+    }
+
+    .col-md-3 {
+      height: 500px;
+    }
+
     ul {
       /*border: 1px solid black;*/
     }

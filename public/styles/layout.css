@@ -7766,6 +7766,10 @@ body .lists h1 {
   color: white;
 }
 
+body .lists .col-md-3 {
+  height: 500px;
+}
+
 body .lists ul {
   /*border: 1px solid black;*/
 }
