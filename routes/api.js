@@ -106,7 +106,7 @@ function getMovies(search_text) {
     request(options, function(err, data) {
       if (err) {
         reject(new Error());
-      } else if (data.body.results[0] === undefined) {
+      } else if (data.body.results === undefined) {
         console.log("couldn't find it");
         resolve("");
       } else if (data.body.results[0] === undefined) {
