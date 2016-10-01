@@ -26,20 +26,26 @@ module.exports = (app, knex) => {
     let userId = req.user[0].id
     let types = Object.keys(req.body);
     let object = req.body;
-
+    let obj = {};
     itemMethods.getListId(userId, (err, info) => {
     if (err) return console.log(err);
-      console.log(info);
+      info.forEach(function(each) {
+        let listType = each.type;
+        let listId = each.id;
+        console.log(listType);
+        console.log(listId);
+        obj[listType] = listId;
+      })
+      console.log(obj);
+      console.log(obj["movies"]);
+      types.forEach(function (type) {
+        let lowerType = `${type.toLowerCase()}s`;
+        let list_ID = obj[lowerType];
+        itemMethods.insertItem(list_ID, lowerType, object[type]);
+      });
+      // return a 200 or something after saving
     });
-
-    types.forEach(function (type) {
-      let lowerType = type.toLowerCase();
-      // itemMethods.insertItem(userId, type, object[lowerType]); //works and inserts into db
-    });
-    // todo: save to correct dB, and if successful, return a 200 or something
   });
-
-  //req.user.id grabs id grabs id
 
   return router;
 }
