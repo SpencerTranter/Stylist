@@ -18,20 +18,40 @@ $(() => {
   $('#user_choice').on('submit', function (event) {
     event.preventDefault();
     var formData = {};
-    $('.cbox:checked').each((index, element) => {
+    var checked = $('.cbox:checked');
+
+    checked.each((index, element) => {
       formData[element.dataset.category] = $(element).text();
     });
-    console.log("I'm going to send this to your mom: ", formData);
+
+    console.log("I'm going to send this to you: ", formData);
     $.ajax({
       url:'/insertItem',
       method:'POST',
       data: formData,
-      success: function (err, data) {
-        console.log(err, data);
-        // todo: update the page
+      success: checked.each(function append_to_list(index, element) {
+        var  type = element.dataset.category
+        var name = $(element).text();
+        if (type === 'Movie') {
+          $("<li>" + name + "</li>")
+          .appendTo(".list-unstyled.movies");
+        } else if (type === 'Book') {
+          $("<li>" + name + "</li>")
+          .appendTo(".list-unstyled.books");
+        } else if (type === 'Purchase') {
+          $("<li>" + name + "</li>")
+          .appendTo(".list-unstyled.products");
+        } else if (type === 'Restaurant') {
+          $("<li>" + name + "</li>")
+          .appendTo(".list-unstyled.restaurants");
+        }
+      }),
+      error: function (err) {
+        if (err) throw err;
       }
     })
   })
 });
+
 
 

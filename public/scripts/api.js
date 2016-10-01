@@ -1,7 +1,7 @@
 "use strict";
 $(function(){
 
-  function append_to_list(type, result) {
+  function show_to_user(type, result) {
     $("<input type='checkbox' data-category='" + type + "'>" + type + ": " + result + "</input>")
       .addClass('cbox')
       .text(result)
@@ -32,7 +32,7 @@ $(function(){
           let user_data = data.search_results[i];
           console.log(user_data);
           if (data.search_results[i]) {
-            append_to_list(types[i], data.search_results[i]);
+            show_to_user(types[i], data.search_results[i]);
           }
         }
 
