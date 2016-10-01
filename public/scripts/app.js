@@ -51,6 +51,20 @@ $(() => {
       }
     })
   })
+
+  //Disables search button if no field is entered
+  $("#main_search_input").on('keyup', function() {
+    let value = $(this).val().length;
+
+    if(value > 0){
+       $('#main_search_button').attr("disabled", false);
+    } else {
+      $('#main_search_button').attr("disabled", true);
+    }
+  })
+
+
+
 });
 
 

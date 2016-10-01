@@ -7785,21 +7785,25 @@ body .lists .headings {
 body .lists .restaurants {
   background-image: url("/pictures/restaurant.jpg");
   height: 500px;
+  background-size: cover;
 }
 
 body .lists .movies {
   background-image: url("/pictures/film2.jpg");
   height: 500px;
+  background-size: cover;
 }
 
 body .lists .products {
   background-image: url("/pictures/shopping.jpg");
   height: 500px;
+  background-size: cover;
 }
 
 body .lists .books {
   background-image: url("/pictures/books2.jpg");
   height: 500px;
+  background-size: cover;
 }
 
 body .or {
