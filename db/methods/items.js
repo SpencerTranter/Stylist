@@ -22,9 +22,9 @@ module.exports = (knex) => ({
 //   .asCallback(cb);
 // },
 
-insertItem: function(item, cb) {
+insertItem: function(user_list_id, item_type, item_name, cb) {
   knex('items')
-  .insert(item)
+  .insert([{list_id: user_list_id, type: item_type, item: item_name}])
   .asCallback(cb);
 },
 
