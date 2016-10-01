@@ -9,6 +9,10 @@ body {
     border: 3px solid white;
     color: white;
     background-color: #59CDCD;
+
+  }
+  .back {
+    margin-left: 30px;
   }
 
   .inactive:hover {
@@ -18,11 +22,11 @@ body {
   }
 
   header {
-    width: 75%;
     margin: 0 auto;
     h1 {
       color: white;
-      font-size: 12em;
+      font-size: 11em;
+      padding-bottom: 20px;
     }
     #list_title {
       color: #FFC5C5;
@@ -44,29 +48,29 @@ body {
 
     .restaurants {
       background-image: url("/pictures/restaurant.jpg");
-      height: 500px;
+      height: 400px;
       background-size: cover;
     }
     .movies {
       background-image: url("/pictures/film2.jpg");
-      height: 500px;
+      height: 400px;
       background-size: cover;
     }
     .products {
       background-image: url("/pictures/shopping.jpg");
-      height: 500px;
+      height: 400px;
       background-size: cover;
     }
     .books {
       background-image: url("/pictures/books2.jpg");
-      height: 500px;
+      height: 400px;
       background-size: cover;
     }
 
   }
-  .or {
+  /*.or {
     margin: 10px 10px;
-  }
+  }*/
 
   #list_container {
     width: 750px;

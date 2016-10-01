@@ -17,21 +17,24 @@
 
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-11"></div>
-        <div class="col-md-1">
-        <form action="/logout" method="POST" id="logout_form">
-          <input id="logout_button" class="btn btn-default inactive" type="submit" value="Logout">
-        </form>
-        </div>
-      </div>
     <!-- Header includes title and search field -->
       <header>
-        <h1 class="text-center">sty<span id="list_title">list</span></h1>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
+            <h1 class="text-center">sty<span id="list_title">list</span></h1>
+          </div>
+          <div class="col-md-3"></div>
+          <div class="col-md-1">
+            <form action="/logout" method="POST" id="logout_form">
+              <input id="logout_button" class="btn btn-default inactive" type="submit" value="Logout">
+            </form>
+          </div>
 
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
             <form action="/" method="GET" id="main_search">
               <div class="input-group">
                 <input type="text" id="main_search_input" class="form-control" placeholder="Search for...">
@@ -41,8 +44,7 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4">
-          </div>
+          <div class="col-md-3"></div>
         </div>
       </header>
 
@@ -70,7 +72,7 @@
         </div>
         <div class="row">
           <div class="col-md-3 restaurants">
-
+            <h1>Restaurants</h1>
             <ul class="list-unstyled restaurant">
 
             <% all.forEach(function(item) {  %>
@@ -118,5 +120,7 @@
         </div>
       </div>
     </div>
+  </body>
+</html>
 
 

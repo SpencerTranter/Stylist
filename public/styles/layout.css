@@ -7739,6 +7739,9 @@ button.close {
 body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
+  /*.or {
+    margin: 10px 10px;
+  }*/
 }
 
 body .inactive {
@@ -7748,6 +7751,10 @@ body .inactive {
   background-color: #59CDCD;
 }
 
+body .back {
+  margin-left: 30px;
+}
+
 body .inactive:hover {
   background-color: white;
   border: 3px solid white;
@@ -7755,13 +7762,13 @@ body .inactive:hover {
 }
 
 body header {
-  width: 75%;
   margin: 0 auto;
 }
 
 body header h1 {
   color: white;
-  font-size: 12em;
+  font-size: 11em;
+  padding-bottom: 20px;
 }
 
 body header #list_title {
@@ -7784,30 +7791,26 @@ body .lists .headings {
 
 body .lists .restaurants {
   background-image: url("/pictures/restaurant.jpg");
-  height: 500px;
+  height: 400px;
   background-size: cover;
 }
 
 body .lists .movies {
   background-image: url("/pictures/film2.jpg");
-  height: 500px;
+  height: 400px;
   background-size: cover;
 }
 
 body .lists .products {
   background-image: url("/pictures/shopping.jpg");
-  height: 500px;
+  height: 400px;
   background-size: cover;
 }
 
 body .lists .books {
   background-image: url("/pictures/books2.jpg");
-  height: 500px;
+  height: 400px;
   background-size: cover;
-}
-
-body .or {
-  margin: 10px 10px;
 }
 
 body #list_container {
