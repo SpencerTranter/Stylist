@@ -7741,6 +7741,19 @@ body {
   font-family: 'Monda', Arial, sans-serif;
 }
 
+body .inactive {
+  margin-top: 5px;
+  border: 3px solid white;
+  color: white;
+  background-color: #59CDCD;
+}
+
+body .inactive:hover {
+  background-color: white;
+  border: 3px solid white;
+  color: #59CDCD;
+}
+
 body header {
   width: 75%;
   margin: 0 auto;
