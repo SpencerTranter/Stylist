@@ -34,16 +34,16 @@ $(() => {
         var name = $(element).text();
         if (type === 'Movie') {
           $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.movies");
+          .appendTo(".list-unstyled.movies.ui-sortable-handle.ui-sortable");
         } else if (type === 'Book') {
           $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.books");
+          .appendTo(".list-unstyled.books.ui-sortable-handle.ui-sortable");
         } else if (type === 'Purchase') {
           $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.products");
+          .appendTo(".list-unstyled.products.ui-sortable-handle.ui-sortable");
         } else if (type === 'Restaurant') {
           $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.restaurants");
+          .appendTo(".list-unstyled.restaurants.ui-sortable-handle.ui-sortable");
         }
       }),
       error: function (err) {
