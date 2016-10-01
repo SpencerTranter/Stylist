@@ -87,6 +87,9 @@ function getMovies(search_text) {
       } else if (data.body.results === undefined) {
         console.log("couldn't find it");
         resolve("");
+      } else if (data.body.results[0] === undefined) {
+        console.log("couldn't find it");
+        resolve("");
       } else {
         resolve(data.body.results[0].title);
       }
