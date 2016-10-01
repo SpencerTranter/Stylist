@@ -7765,19 +7765,19 @@ body .lists ul {
 }
 
 body .lists .restaurants {
-  background-color: #B52626;
+  background-image: url("/pictures/restaurant.jpg");
 }
 
 body .lists .movies {
-  background-color: #459393;
+  background-image: url("/pictures/film2.jpg");
 }
 
 body .lists .products {
-  background-color: #F5CA73;
+  background-image: url("/pictures/shopping.jpg");
 }
 
 body .lists .books {
-  background-color: #459393;
+  background-image: url("/pictures/books2.jpg");
 }
 
 body .or {

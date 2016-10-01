@@ -7,10 +7,7 @@ module.exports = (app, knex) => {
 
   app.post("/routes/api", (req, res) => {
     let search_text = req.body.search;
-     // let booksPromise = getBooks(search_text);
-     // let restaurantsPromise = getRestaurants(search_text);
-     // let purchasesPromise = getPurchases(search_text);
-     //let moviesPromise = getMovies(search_text);
+
     Promise.all([getMovies(search_text), getPurchases(search_text), getRestaurants(search_text), getBooks(search_text)])
     .then(function(result) {
       res.json({search_results: result});
@@ -87,7 +84,7 @@ function getMovies(search_text) {
     request(options, function(err, data) {
       if (err) {
         reject(new Error());
-      } else if(data.body.results[0] === undefined) {
+      } else if (data.body.results === undefined) {
         console.log("couldn't find it");
         resolve("");
       } else {

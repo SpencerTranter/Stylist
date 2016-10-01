@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
     res.redirect('/login');
     return;
   }
-    itemMethods.getAll(req.user.id, (err, all) => {
-      console.log(all);
+  console.log(req.user)
+    itemMethods.getAll(req.user[0].id, (err, all) => {
       if (err) return console.log(err);
       res.render("index", {
         all: all,
@@ -21,6 +21,12 @@ app.get("/", (req, res) => {
       })
     })
 });
+
+app.post("/insertItem", (req, res) => {
+    console.log(req.user.id);
+    console.log(req.body);
+
+  });
 
 //req.user.id grabs id grabs id
 

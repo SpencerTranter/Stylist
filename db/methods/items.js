@@ -22,11 +22,11 @@ module.exports = (knex) => ({
 //   .asCallback(cb);
 // },
 
-// insertItem: function(item, cb) {
-//   knex('items')
-//   .insert(item)
-//   .asCallback(cb);
-// },
+insertItem: function(item, cb) {
+  knex('items')
+  .insert(item)
+  .asCallback(cb);
+},
 
 // deleteItem: function(item_id, cb) {
 //   knex('items')
