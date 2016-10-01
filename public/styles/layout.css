@@ -7755,32 +7755,28 @@ body header #list_title {
   color: #FFC5C5;
 }
 
-body .col-md-4 {
-  min-height: 400px;
-}
-
-body .col-md-4 .lists {
+body .lists {
   margin-top: 50px;
   text-align: center;
 }
 
-body .col-md-4 .lists ul {
+body .lists ul {
   /*border: 1px solid black;*/
 }
 
-body .col-md-4 .lists .restaurants {
+body .lists .restaurants {
   background-image: url("/pictures/restaurant.jpg");
 }
 
-body .col-md-4 .lists .movies {
+body .lists .movies {
   background-image: url("/pictures/film2.jpg");
 }
 
-body .col-md-4 .lists .products {
+body .lists .products {
   background-image: url("/pictures/shopping.jpg");
 }
 
-body .col-md-4 .lists .books {
+body .lists .books {
   background-image: url("/pictures/books2.jpg");
 }
 

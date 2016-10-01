@@ -1,11 +1,9 @@
 "use strict";
 $(function(){
 
-  function append_to_list(user_input) {
-    console.log(user_input);
-    // $(".checkbox").innerHTML = "";
-    // $("div.checkbox").val(user_input);
-    $("<input type = 'checkbox'>" + user_input + "</input>").appendTo($("#list_container"));
+  function append_to_list(type, result) {
+    $("<input type = 'checkbox'>" + type + ": " + result + "</input>").appendTo($("#list_container"));
+    $("<br />").appendTo("#list_container");
   };
 
   $("#main_search").submit(function(e) {
@@ -24,10 +22,14 @@ $(function(){
         data: {search: search_text},
         success: function(data) {
           console.log("Search results (movie, purchases, restaurant, book)", data);
+          $('#list_container').empty();
           for (let i in data.search_results) {
-            append_to_list(data.search_results[i]);
+            let types = ['Movie', 'Purchase', 'Restaurant', 'Book'];
+            if (data.search_results[i]) {
+              append_to_list(types[i], data.search_results[i]);
+            }
           }
-      }
+        }
+      });
   });
-});
 });
