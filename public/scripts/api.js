@@ -33,8 +33,11 @@ $(function(){
             }
 
           }
+          console.log("Array", data.search_results);
         }
       });
   });
+
+
 });
 
