@@ -17,32 +17,33 @@ body {
   }
 
   .lists{
-    margin-top: 50px;
+    margin-top: 60px;
     color: #FFC5C5;
     font-size: 2em;
     text-align: center;
-    h1 {
+    .headings {
       color: white;
     }
 
-    .col-md-3 {
+    /*.col-md-3 {
       height: 500px;
-    }
+    }*/
 
-    ul {
-      /*border: 1px solid black;*/
-    }
     .restaurants {
       background-image: url("/pictures/restaurant.jpg");
+      height: 500px;
     }
     .movies {
       background-image: url("/pictures/film2.jpg");
+      height: 500px;
     }
     .products {
       background-image: url("/pictures/shopping.jpg");
+      height: 500px;
     }
     .books {
       background-image: url("/pictures/books2.jpg");
+      height: 500px;
     }
 
   }
@@ -51,7 +52,7 @@ body {
   }
 
   #list_container {
-    float: right;
+    width: 750px;
   }
 
 

@@ -30,8 +30,10 @@ function getBooks(search_text) {
         resolve("");
       } else {
         for (var i = 0; i < data.body.items.length; i++) {
-          if (data.body.items[i].volumeInfo.title.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
-            resolve(data.body.items[0].volumeInfo.title);
+          let bookTitle = data.body.items[i].volumeInfo.title;
+          let parsedSearch = search_text.replace(/\+/g, ' ');
+          if (bookTitle.indexOf(parsedSearch) === 0) {
+            resolve(bookTitle);
           }
         }
         resolve("");
@@ -55,8 +57,10 @@ function getRestaurants(search_text) {
         resolve("");
       } else {
         for (var i = 0; i < data.body.restaurants.length; i++) {
-          if (data.body.restaurants[i].restaurant.name.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
-            resolve(data.body.restaurants[i].restaurant.name);
+          let restaurantName = data.body.restaurants[i].restaurant.name;
+          let parsedSearch = search_text.replace(/\+/g, ' ');
+          if (restaurantName.indexOf(parsedSearch) === 0) {
+            resolve(restaurantName);
           }
         }
         resolve("");
@@ -79,8 +83,10 @@ function getPurchases(search_text) {
         resolve("");
       } else {
         for (var i = 0; i < data.body.items.length; i++){
-          if (data.body.items[i].name.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
-            resolve(data.body.items[i].name);
+          let item = data.body.items[i].name;
+          let parsedSearch = search_text.replace(/\+/g, ' ');
+          if (item.indexOf(parsedSearch) === 0) {
+            resolve(item);
           }
         }
         resolve("");
@@ -109,8 +115,10 @@ function getMovies(search_text) {
       } else {
         // console.log(data.body.results[0].title.indexOf(search_text));
         for (var i = 0; i < data.body.results.length; i++) {
-          if (data.body.results[i].title.indexOf(search_text.replace(/\+/g, ' ')) === 0) {
-            resolve(data.body.results[i].title);
+          let movieName = data.body.results[i].title;
+          let parsedSearch = search_text.replace(/\+/g, ' ');
+          if (movieName.indexOf(parsedSearch) === 0) {
+            resolve(movieName);
           }
         }
         resolve("");
