@@ -12,12 +12,12 @@ module.exports = (app, knex) => {
       res.redirect('/login');
       return;
     }
-    console.log(req.user)
+
       itemMethods.getAll(req.user[0].id, (err, all) => {
         if (err) return console.log(err);
         res.render("index", {
           all: all,
-          user_id: req.user.id
+          user_id: req.user[0].id
         })
       })
   });
@@ -36,8 +36,9 @@ module.exports = (app, knex) => {
       })
       types.forEach(function (type) {
         let lowerType = `${type.toLowerCase()}s`;
+        let lowerTypeNoS = `${type.toLowerCase()}`;
         let list_ID = obj[lowerType];
-        itemMethods.insertItem(list_ID, lowerType, object[type]);
+        itemMethods.insertItem(list_ID, lowerTypeNoS, object[type]);
       });
       // return a 200 or something after saving
     });
