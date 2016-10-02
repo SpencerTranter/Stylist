@@ -58,7 +58,7 @@ updateItem: function(list_id, itemName, oldList, newList, cb) {
       'list_id': list_id,
       'type': newList,
       'name': itemName
-    })
+    }).asCallback(cb);
 }
 
 })

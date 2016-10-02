@@ -15,6 +15,9 @@ body {
   .back {
     margin-left: 30px;
   }
+  .create_acct {
+    margin-left: -25px;
+  }
 
   .inactive:hover {
     background-color: white;
@@ -75,7 +78,7 @@ body {
     .books {
       background-image: url("/pictures/book3.jpg");
     }
-  }
+
 
   #space_for_form {
     height: 40px;
@@ -89,4 +92,12 @@ body {
     display: none;
   }
 
+  .delete_button {
+    /*display: ;*/
+  }
+
+  /*.delete_button:hover {
+    display: none;
+  }*/
+}
 

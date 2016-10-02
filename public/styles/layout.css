@@ -7740,6 +7740,9 @@ body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
   color: #828282;
+  /*.delete_button:hover {
+    display: none;
+  }*/
 }
 
 body .inactive {
@@ -7751,6 +7754,10 @@ body .inactive {
 
 body .back {
   margin-left: 30px;
+}
+
+body .create_acct {
+  margin-left: -25px;
 }
 
 body .inactive:hover {
@@ -7820,14 +7827,18 @@ body .books {
   background-image: url("/pictures/book3.jpg");
 }
 
-#space_for_form {
+body #space_for_form {
   height: 40px;
 }
 
-#list_container {
+body #list_container {
   width: 750px;
 }
 
-.hide_display {
+body .hide_display {
   display: none;
+}
+
+body .delete_button {
+  /*display: ;*/
 }
