@@ -15,6 +15,9 @@ body {
   .back {
     margin-left: 30px;
   }
+  .create_acct {
+    margin-left: -25px;
+  }
 
   .inactive:hover {
     background-color: white;
@@ -34,7 +37,7 @@ body {
     }
   }
 
-  .lists{
+  .lists {
     margin-top: 60px;
     color: white;
     font-size: 20px;
@@ -44,7 +47,7 @@ body {
       color: white;
     }
 
-    .restaurants, .movies, .products, .books{
+    .restaurants, .movies, .purchases, .books {
       overflow: scroll;
       overflow-x: hidden;
       height: 400px;
@@ -58,21 +61,28 @@ body {
       }
     }
   }
+
+  .ui-sortable {
+    min-height: 300px;
+  }
+
     .restaurants {
       background-image: url("/pictures/restaurant.jpg");
     }
     .movies {
       background-image: url("/pictures/film4.jpg");
     }
-    .products {
+    .purchases {
       background-image: url("/pictures/shopping.jpg");
     }
     .books {
       background-image: url("/pictures/book3.jpg");
     }
+
+
+  #space_for_form {
+    height: 40px;
   }
-
-
 
   #list_container {
     width: 750px;
@@ -82,4 +92,12 @@ body {
     display: none;
   }
 
+  .delete_button {
+    display: none;
+  }
+
+  .delete_item:hover > .delete_button {
+    display: inline;
+  }
+}
 

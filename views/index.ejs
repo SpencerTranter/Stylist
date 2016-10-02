@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/api.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src = "/scripts/sort.js"></script>
   </head>
 
   <body>
@@ -50,12 +51,12 @@
         </div>
       </header>
 
+      <div id = 'space_for_form'>
       <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
       <article id = 'list_container'></article>
       <button id = 'user_choice' class = 'hide_display' type='submit'>Insert!</button>
       </form>
-
-
+      </div>
       <!-- start divs with list objects -->
       <div class="lists">
         <div class="row">
@@ -74,15 +75,16 @@
         </div>
         <div class="row">
           <div class="col-md-3 restaurants">
-            <h1>Restaurants</h1>
+
             <ul class="list-unstyled restaurant">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
-                <li> <%=item.name%>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%=item.name%>
                 </form>
                 </li>
               <%  } %>
@@ -97,11 +99,12 @@
             <ul class="list-unstyled movie">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
-                <li> <%= item.name %>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%= item.name %>
                 </form>
                 </li>
               <%  } %>
@@ -109,16 +112,17 @@
             </ul>
 
           </div>
-          <div class="col-md-3 products">
+          <div class="col-md-3 purchases">
 
-            <ul class="list-unstyled product">
+            <ul class="list-unstyled purchase">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
-                <li> <%= item.name %>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%= item.name %>
                 </form>
                 </li>
               <%  } %>
@@ -131,11 +135,12 @@
             <ul class="list-unstyled book">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
-                <li> <%= item.name %>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%= item.name %>
                 </form>
                 </li>
               <%  } %>
@@ -149,11 +154,4 @@
   </body>
 </html>
 
-<script>
-  $( function() {
-    $( ".restaurant, .movie, .product, .book" ).sortable({
-      connectWith: ".list-unstyled"
-    }).disableSelection();
-  } );
-  </script>
 

@@ -46,6 +46,19 @@ getAll: function(user_id, cb) {
     .from('lists')
     .leftJoin('items', 'lists.id', 'items.list_id')
     .where('lists.user_id', '=', user_id).asCallback(cb);
+},
+
+updateItem: function(list_id, itemName, oldList, newList, cb) {
+  console.log(list_id, itemName, oldList, newList);
+  knex('items')
+    .where('name', '=', itemName)
+    .where('type', '=', oldList)
+    .update({
+      'id': undefined,
+      'list_id': list_id,
+      'type': newList,
+      'name': itemName
+    }).asCallback(cb);
 }
 
 })
