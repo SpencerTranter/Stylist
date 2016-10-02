@@ -13,6 +13,7 @@
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/api.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
   <body>
@@ -48,9 +49,9 @@
         </div>
       </header>
 
-      <form action="/insertItem" method='POST' id='user_choice'>
+      <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
       <article id = 'list_container'></article>
-      <button id = 'user_choice' type='submit'>Insert!</button>
+      <button id = 'user_choice' class = 'hide_display' type='submit'>Insert!</button>
       </form>
 
 
@@ -131,4 +132,11 @@
   </body>
 </html>
 
+<script>
+  $( function() {
+    $( ".restaurant, .movie, .product, .book" ).sortable({
+      connectWith: ".list-unstyled"
+    }).disableSelection();
+  } );
+  </script>
 

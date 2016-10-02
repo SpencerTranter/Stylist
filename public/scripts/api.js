@@ -7,6 +7,9 @@ $(function(){
       .text(result)
       .appendTo($("#list_container"));
     $("<br />").appendTo("#list_container");
+    $($(".hide_display")).css('display', 'block');
+    $($(".hidden_display")).css('display', 'block');
+    $("#main_search")[0].reset();
   };
 
   $("#main_search").submit(function(e) {
@@ -18,7 +21,6 @@ $(function(){
     if (search_text === null || search_text === '' || /^\s+$/.test(search_text)) {
       return;
     }
-
     $.ajax({
       type: "POST",
       url: '/routes/api',
