@@ -7792,7 +7792,7 @@ body .lists .headings {
 }
 
 body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 400px;
   background-size: cover;
   border: 1.5px solid #59CDCD;
@@ -7804,14 +7804,7 @@ body .lists .restaurants {
 }
 
 body .lists .movies {
-<<<<<<< HEAD
-  background-image: url("/pictures/film3.jpg");
-  height: 400px;
-  background-size: cover;
-  overflow: scroll;
-=======
   background-image: url("/pictures/film4.jpg");
->>>>>>> f686a4b67d10e04ad73f060c764ff12d6412dc28
 }
 
 body .lists .products {
@@ -7819,14 +7812,7 @@ body .lists .products {
 }
 
 body .lists .books {
-<<<<<<< HEAD
-  background-image: url("/pictures/books2.jpg");
-  height: 400px;
-  background-size: cover;
-  overflow: scroll;
-=======
   background-image: url("/pictures/book3.jpg");
->>>>>>> f686a4b67d10e04ad73f060c764ff12d6412dc28
 }
 
 body #list_container {
