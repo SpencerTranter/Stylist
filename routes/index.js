@@ -39,7 +39,10 @@ module.exports = (app, knex) => {
         let lowerType = `${type.toLowerCase()}s`;
         let lowerTypeNoS = `${type.toLowerCase()}`;
         let list_ID = obj[lowerType];
-        itemMethods.insertItem(list_ID, lowerTypeNoS, object[type]);
+        itemMethods.insertItem(list_ID, lowerTypeNoS, object[type])
+        .then((id) => {
+          res.json(id[0]);
+        });
       });
       // return a 200 or something after saving
     });
@@ -72,9 +75,8 @@ module.exports = (app, knex) => {
 
   app.delete("/delete/:id", (req, res) => {
     if (!req.user) res.redirect('/login');
-    itemMethods.deleteItem(req.params.id, (err, result) => {
-      res.redirect('/');
-    });
+    itemMethods.deleteItem(req.params.id);
+    res.sendStatus(200);
   });
 
   return router;

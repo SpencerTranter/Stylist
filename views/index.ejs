@@ -14,8 +14,9 @@
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/api.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src = "/scripts/sort.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src = "/scripts/delete.js"></script>
+    <script type="text/javascript" src = "/scripts/sort.js"></script>
   </head>
 
   <body>
@@ -90,11 +91,11 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
-                  <%=item.name%>
+                  <p class="item_name"><%=item.name%></p>
                 </form>
                 </li>
               <%  } %>
@@ -110,7 +111,7 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
@@ -128,7 +129,7 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
@@ -146,7 +147,7 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>

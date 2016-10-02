@@ -7754,11 +7754,7 @@ body .back {
 }
 
 body .create_acct {
-<<<<<<< HEAD
-  margin-left: -20px;
-=======
   margin-left: -25px;
->>>>>>> efbb8c0fc62dc73b75496c9a91864626b812438b
 }
 
 body .inactive:hover {
@@ -7793,11 +7789,7 @@ body .lists .headings {
   color: white;
 }
 
-<<<<<<< HEAD
-body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
-=======
 body .lists .restaurants, body .lists .movies, body .lists .purchases, body .lists .books {
->>>>>>> efbb8c0fc62dc73b75496c9a91864626b812438b
   overflow: scroll;
   overflow-x: hidden;
   height: 400px;
@@ -7830,10 +7822,6 @@ body .purchases {
 
 body .books {
   background-image: url("/pictures/book3.jpg");
-}
-
-body #space_for_form {
-  height: 40px;
 }
 
 body #list_container {
