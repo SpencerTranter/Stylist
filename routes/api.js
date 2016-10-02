@@ -6,6 +6,7 @@ const express = require('express');
 module.exports = (app, knex) => {
 
   app.post("/routes/api", (req, res) => {
+    if (!req.user) res.redirect('/login');
     let search_text = req.body.search;
 
     Promise.all([getRestaurants(search_text), getMovies(search_text.replace(/\+/g, ' ')), getBooks(search_text), getPurchases(search_text)])
@@ -85,7 +86,7 @@ function getPurchases(search_text) {
         for (var i = 0; i < data.body.items.length; i++){
           let item = data.body.items[i].name;
           let parsedSearch = search_text.replace(/\+/g, ' ');
-          if (item.indexOf(parsedSearch) === 0) {
+          if (item.indexOf(parsedSearch) !== -1) {
             resolve(item);
           }
         }

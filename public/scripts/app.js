@@ -13,7 +13,7 @@ $(() => {
         url:`/logout`,
         method: 'POST'
     })
-  })
+  });
 
   $('#user_choice').on('submit', function (event) {
     event.preventDefault();
@@ -23,8 +23,8 @@ $(() => {
     checked.each((index, element) => {
       formData[element.dataset.category] = $(element).text();
     });
-
-    console.log("I'm going to send this to you: ", formData);
+    $($(".hide_display")).css('display', 'none');
+    $($(".hidden_display")).css('display', 'none');
     $.ajax({
       url:'/insertItem',
       method:'POST',
@@ -32,18 +32,19 @@ $(() => {
       success: checked.each(function append_to_list(index, element) {
         var  type = element.dataset.category
         var name = $(element).text();
+        let delete_button = "<form class=\"delete_item\" method=\"POST\" action=\"/delete/<%=item.id%>?_method=DELETE\"> <button class=\"delete_button\" type=\"submit\" aria-hidden=true><i class=\"fa fa-trash\" aria-hidden=true></i></button></form>"
         if (type === 'Movie') {
-          $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.movies");
+          $("<li>" + name + delete_button + "</li>")
+          .appendTo(".list-unstyled.movie");
         } else if (type === 'Book') {
-          $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.books");
+          $("<li>" + name + delete_button + "</li>")
+          .appendTo(".list-unstyled.book");
         } else if (type === 'Purchase') {
-          $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.products");
+          $("<li>" + name + delete_button + "</li>")
+          .appendTo(".list-unstyled.product");
         } else if (type === 'Restaurant') {
-          $("<li>" + name + "</li>")
-          .appendTo(".list-unstyled.restaurants");
+          $("<li>" + name + delete_button + "</li>")
+          .appendTo(".list-unstyled.restaurant");
         }
       }),
       error: function (err) {
@@ -51,6 +52,18 @@ $(() => {
       }
     })
   })
+
+  //Disables search button if no field is entered
+  $("#main_search_input").on('keyup', function() {
+    let value = $(this).val().length;
+
+    if(value > 0){
+       $('#main_search_button').attr("disabled", false);
+    } else {
+      $('#main_search_button').attr("disabled", true);
+    }
+  })
+
 });
 
 

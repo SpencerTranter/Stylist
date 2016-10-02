@@ -3,13 +3,31 @@
 body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
+  color: #828282;
+
+  .inactive {
+    margin-top: 5px;
+    border: 3px solid white;
+    color: white;
+    background-color: #59CDCD;
+
+  }
+  .back {
+    margin-left: 30px;
+  }
+
+  .inactive:hover {
+    background-color: white;
+    border: 3px solid white;
+    color: #59CDCD;
+  }
 
   header {
-    width: 75%;
     margin: 0 auto;
     h1 {
       color: white;
-      font-size: 12em;
+      font-size: 11em;
+      padding-bottom: 20px;
     }
     #list_title {
       color: #FFC5C5;
@@ -18,42 +36,50 @@ body {
 
   .lists{
     margin-top: 60px;
-    color: #FFC5C5;
-    font-size: 2em;
+    color: white;
+    font-size: 20px;
     text-align: center;
+    overflow: hidden;
     .headings {
       color: white;
     }
 
-    /*.col-md-3 {
-      height: 500px;
-    }*/
-
+    .restaurants, .movies, .products, .books{
+      overflow: scroll;
+      overflow-x: hidden;
+      height: 400px;
+      background-size: cover;
+      border: 1.5px solid #59CDCD;
+      border-radius: 6px;
+      .delete_button{
+        background: none;
+        padding: 0px;
+        border: none;
+      }
+    }
+  }
     .restaurants {
       background-image: url("/pictures/restaurant.jpg");
-      height: 500px;
     }
     .movies {
-      background-image: url("/pictures/film2.jpg");
-      height: 500px;
+      background-image: url("/pictures/film4.jpg");
     }
     .products {
       background-image: url("/pictures/shopping.jpg");
-      height: 500px;
     }
     .books {
-      background-image: url("/pictures/books2.jpg");
-      height: 500px;
+      background-image: url("/pictures/book3.jpg");
     }
+  }
 
-  }
-  .or {
-    margin: 10px 10px;
-  }
+
 
   #list_container {
     width: 750px;
   }
 
+  .hide_display {
+    display: none;
+  }
 
-}
+

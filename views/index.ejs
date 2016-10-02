@@ -6,6 +6,7 @@
     <!-- styling -->
     <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <script src="https://use.fontawesome.com/a0cd422649.js"></script>
 
     <!-- javascript -->
     <script type="text/javascript" src="/vendor/underscore-min.js"></script>
@@ -13,56 +14,47 @@
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/api.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-11"></div>
-        <div class="col-md-1">
-        <form action="/logout" method="POST" id="logout_form">
-          <input id="logout_button" class="btn btn-default logout" type="submit" value="Logout">
-        </form>
-        </div>
-      </div>
     <!-- Header includes title and search field -->
       <header>
-        <h1 class="text-center">sty<span id="list_title">list</span></h1>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
+            <h1 class="text-center">sty<span id="list_title">list</span></h1>
+          </div>
+          <div class="col-md-3"></div>
+          <div class="col-md-1">
+            <form action="/logout" method="POST" id="logout_form">
+              <input id="logout_button" class="btn btn-default inactive" type="submit" value="Logout">
+            </form>
+          </div>
 
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
             <form action="/" method="GET" id="main_search">
               <div class="input-group">
                 <input type="text" id="main_search_input" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
-
-                  <button id="main_search_button" class="btn btn-default" type="submit">Go!</button>
+                  <button id="main_search_button" class="btn btn-default" type="submit" disabled="true">Go!</button>
                 </span>
               </div>
             </form>
           </div>
-          <div class="col-md-4">
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Category
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><a href="#">Restaurants</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Books</a></li>
-              </ul>
-            </div>
-          </div>
+          <div class="col-md-3"></div>
         </div>
       </header>
 
-      <form action="/insertItem" method='POST' id='user_choice'>
+      <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
       <article id = 'list_container'></article>
-      <button id = 'user_choice' type='submit'>Insert!</button>
+      <button id = 'user_choice' class = 'hide_display' type='submit'>Insert!</button>
       </form>
+
 
       <!-- start divs with list objects -->
       <div class="lists">
@@ -82,45 +74,86 @@
         </div>
         <div class="row">
           <div class="col-md-3 restaurants">
-<div class="row">
-          <div class="col-md-3 restaurants">
-            <ul class="list-unstyled restaurants">
-            <% all.forEach(function(item) {  %>
-            <%  if (item.type === 'restaurant') {  %>
-              <li> <%= item.name %> </li>
-            <%  } %>
-            <% }) %>
-            </ul>
-          </div>
-          <div class="col-md-3 movies">
-            <ul class="list-unstyled movies">
-            <% all.forEach(function(item) {  %>
-            <%  if (item.type === 'movie') {  %>
-              <li> <%= item.name %> </li>
-            <%  } %>
-            <% }) %>
-            </ul>
-          </div>
-          <div class="col-md-3 products">
-            <ul class="list-unstyled products">
-            <% all.forEach(function(item) {  %>
-            <%  if (item.type === 'purchase') {  %>
-              <li> <%= item.name %> </li>
-            <%  } %>
-            <% }) %>
-            </ul>
-          </div>
-          <div class="col-md-3 books">
-            <ul class="list-unstyled books">
+            <h1>Restaurants</h1>
+            <ul class="list-unstyled restaurant">
               <% all.forEach(function(item) {  %>
-              <%  if (item.type === 'book') {  %>
-                <li> <%= item.name %> </li>
+              <%  if (item.type === 'restaurant') {  %>
+                <li> <%=item.name%>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
+
+          </div>
+
+
+          <div class="col-md-3 movies">
+
+            <ul class="list-unstyled movie">
+              <% all.forEach(function(item) {  %>
+              <%  if (item.type === 'movie') {  %>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
+              <%  } %>
+              <% }) %>
+            </ul>
+
+          </div>
+          <div class="col-md-3 products">
+
+            <ul class="list-unstyled product">
+              <% all.forEach(function(item) {  %>
+              <%  if (item.type === 'purchase') {  %>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
+              <%  } %>
+              <% }) %>
+            </ul>
+
+          </div>
+          <div class="col-md-3 books">
+
+            <ul class="list-unstyled book">
+              <% all.forEach(function(item) {  %>
+              <%  if (item.type === 'book') {  %>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
+              <%  } %>
+              <% }) %>
+            </ul>
+
           </div>
         </div>
       </div>
     </div>
+  </body>
+</html>
 
+<script>
+  $( function() {
+    $( ".restaurant, .movie, .product, .book" ).sortable({
+      connectWith: ".list-unstyled"
+    }).disableSelection();
+  } );
+  </script>
 
