@@ -8,7 +8,7 @@ $('.delete_item').on('submit',  function(event) {
     url: form.action,
     method: 'DELETE',
     success: () => {
-      console.log('we are cool');
+      $(this).closest("li").remove();
     }
     })
 })
