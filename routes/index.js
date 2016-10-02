@@ -43,6 +43,12 @@ module.exports = (app, knex) => {
       // return a 200 or something after saving
     });
   });
+
+  app.post("/updateTable", (req, res) => {
+    console.log("HEYY IT'S MEE");
+    console.log(req.body);
+
+  })
   return router;
 }
 

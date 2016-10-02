@@ -5847,6 +5847,7 @@ body {
     overflow: hidden;
     /*.col-md-3 {
       height: 500px;
+<<<<<<< HEAD
     }*/ }
     body .lists .headings {
       color: white; }
@@ -5869,3 +5870,43 @@ body {
     width: 750px; }
   body .hide_display {
     display: none; }
+=======
+    }*/
+}
+
+body .lists .headings {
+  color: white;
+}
+
+body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
+  overflow-y: scroll;
+  height: 400px;
+  background-size: cover;
+  border: 1.5px solid #59CDCD;
+  border-radius: 6px;
+}
+
+body .lists .restaurants {
+  background-image: url("/pictures/restaurant.jpg");
+}
+
+body .lists .movies {
+  background-image: url("/pictures/film4.jpg");
+}
+
+body .lists .products {
+  background-image: url("/pictures/shopping.jpg");
+}
+
+body .lists .books {
+  background-image: url("/pictures/book3.jpg");
+}
+
+body #list_container {
+  width: 750px;
+}
+
+body .hide_display {
+  display: none;
+}
+>>>>>>> 7ee116ac5a749255ef1a2a2bc43c8cea1fb4b9d1
