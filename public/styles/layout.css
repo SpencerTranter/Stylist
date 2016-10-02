@@ -5868,3 +5868,5 @@ body {
       background-image: url("/pictures/book3.jpg"); }
   body #list_container {
     width: 750px; }
+  body .hide_display {
+    display: none; }
