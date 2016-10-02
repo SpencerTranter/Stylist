@@ -32,18 +32,24 @@ $(() => {
       success: checked.each(function append_to_list(index, element) {
         var  type = element.dataset.category
         var name = $(element).text();
-        let delete_button = "<form class=\"delete_item\" method=\"POST\" action=\"/delete/<%=item.id%>?_method=DELETE\"> <button class=\"delete_button\" type=\"submit\" aria-hidden=true><i class=\"fa fa-trash\" aria-hidden=true></i></button></form>"
+        //let delete_button = "<form class=\"delete_item\" method=\"POST\" action=\"/delete/<%=item.id%>?_method=DELETE\"> <button class=\"delete_button\" type=\"submit\" aria-hidden=true><i class=\"fa fa-trash\" aria-hidden=true></i></button></form>"
+        let delete_button =
+          `<form class'delete_item' method='POST' action='/delete/<%=item.id%>?_method=DELETE>
+            <button class='delete_button' type='submit' aria-hidden=true><i class='fa fa-trash' aria-hidden=true></i></button>
+            ${name}
+          </form>`
+
         if (type === 'Movie') {
-          $("<li>" + name + delete_button + "</li>")
+          $("<li>" + delete_button + "</li>")
           .appendTo(".list-unstyled.movie");
         } else if (type === 'Book') {
-          $("<li>" + name + delete_button + "</li>")
+          $("<li>" + delete_button + "</li>")
           .appendTo(".list-unstyled.book");
         } else if (type === 'Purchase') {
-          $("<li>" + name + delete_button + "</li>")
+          $("<li>" + delete_button + "</li>")
           .appendTo(".list-unstyled.purchase");
         } else if (type === 'Restaurant') {
-          $("<li>" + name + delete_button + "</li>")
+          $("<li>" + delete_button + "</li>")
           .appendTo(".list-unstyled.restaurant");
         }
       }),

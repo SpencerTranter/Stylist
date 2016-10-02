@@ -79,11 +79,12 @@
             <ul class="list-unstyled restaurant">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
-                <li> <%=item.name%>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%=item.name%>
                 </form>
                 </li>
               <%  } %>
@@ -98,11 +99,12 @@
             <ul class="list-unstyled movie">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
-                <li> <%= item.name %>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%= item.name %>
                 </form>
                 </li>
               <%  } %>
@@ -115,11 +117,12 @@
             <ul class="list-unstyled purchase">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
-                <li> <%= item.name %>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%= item.name %>
                 </form>
                 </li>
               <%  } %>
@@ -132,11 +135,12 @@
             <ul class="list-unstyled book">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
-                <li> <%= item.name %>
+                <li>
                 <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
+                  <%= item.name %>
                 </form>
                 </li>
               <%  } %>
