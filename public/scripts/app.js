@@ -29,7 +29,6 @@ $(() => {
       url:'/insertItem',
       method:'POST',
       data: formData,
-<<<<<<< HEAD
       success: checked.each(function append_to_list(index, element) {
         var  type = element.dataset.category
         var name = $(element).text();
@@ -54,7 +53,6 @@ $(() => {
         }
 
       }),
-=======
       success: (itemID) => {
         checked.each(function append_to_list(index, element) {
           var  type = element.dataset.category
@@ -82,7 +80,6 @@ $(() => {
           }
         });
       },
->>>>>>> 8429d93fcae92c436c32d0e889b8e73f37ceeb32
       error: function (err) {
         if (err) throw err;
       }
