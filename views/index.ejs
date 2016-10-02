@@ -6,6 +6,7 @@
     <!-- styling -->
     <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <script src="https://use.fontawesome.com/a0cd422649.js"></script>
 
     <!-- javascript -->
     <script type="text/javascript" src="/vendor/underscore-min.js"></script>
@@ -77,7 +78,13 @@
             <ul class="list-unstyled restaurant">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
-                <li> <%=item.name%> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
+                <li> <%=item.name%>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -90,7 +97,13 @@
             <ul class="list-unstyled movie">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
-                <li> <%= item.name %> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -101,7 +114,13 @@
             <ul class="list-unstyled product">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
-                <li> <%= item.name %> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -112,7 +131,13 @@
             <ul class="list-unstyled book">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
-                <li> <%= item.name %> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
