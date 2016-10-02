@@ -7739,13 +7739,10 @@ button.close {
 body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
-<<<<<<< HEAD
+  color: #828282;
   /*.or {
     margin: 10px 10px;
   }*/
-=======
-  color: #828282;
->>>>>>> 4f2dcff05b763cdf5dcb97059f3d71f03a1c71f4
 }
 
 body .inactive {
@@ -7784,6 +7781,7 @@ body .lists {
   color: white;
   font-size: 20px;
   text-align: center;
+  overflow: hidden;
   /*.col-md-3 {
       height: 500px;
     }*/
@@ -7793,42 +7791,28 @@ body .lists .headings {
   color: white;
 }
 
-body .lists .restaurants {
-  background-image: url("/pictures/restaurant.jpg");
+body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
+  overflow: scroll;
   height: 400px;
   background-size: cover;
-  overflow: scroll;
+  border: 1.5px solid #59CDCD;
+  border-radius: 6px;
+}
+
+body .lists .restaurants {
+  background-image: url("/pictures/restaurant.jpg");
 }
 
 body .lists .movies {
-<<<<<<< HEAD
-  background-image: url("/pictures/film2.jpg");
-  height: 400px;
-=======
-  background-image: url("/pictures/film3.jpg");
-  height: 500px;
->>>>>>> 4f2dcff05b763cdf5dcb97059f3d71f03a1c71f4
-  background-size: cover;
-  overflow: scroll;
+  background-image: url("/pictures/film4.jpg");
 }
 
 body .lists .products {
   background-image: url("/pictures/shopping.jpg");
-  height: 400px;
-  background-size: cover;
-  overflow: scroll;
 }
 
 body .lists .books {
-<<<<<<< HEAD
-  background-image: url("/pictures/books2.jpg");
-  height: 400px;
-=======
-  background-image: url("/pictures/books.jpg");
-  height: 500px;
->>>>>>> 4f2dcff05b763cdf5dcb97059f3d71f03a1c71f4
-  background-size: cover;
-  overflow: scroll;
+  background-image: url("/pictures/book3.jpg");
 }
 
 body #list_container {

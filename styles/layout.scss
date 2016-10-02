@@ -39,6 +39,7 @@ body {
     color: white;
     font-size: 20px;
     text-align: center;
+    overflow: hidden;
     .headings {
       color: white;
     }
@@ -46,30 +47,24 @@ body {
     /*.col-md-3 {
       height: 500px;
     }*/
-
-    .restaurants {
-      background-image: url("/pictures/restaurant.jpg");
+    .restaurants, .movies, .products, .books{
+      overflow: scroll;
       height: 400px;
       background-size: cover;
-      overflow: scroll;
+      border: 1.5px solid #59CDCD;
+      border-radius: 6px;
+    }
+    .restaurants {
+      background-image: url("/pictures/restaurant.jpg");
     }
     .movies {
-      background-image: url("/pictures/film3.jpg");
-      height: 500px;
-      background-size: cover;
-      overflow: scroll;
+      background-image: url("/pictures/film4.jpg");
     }
     .products {
       background-image: url("/pictures/shopping.jpg");
-      height: 400px;
-      background-size: cover;
-      overflow: scroll;
     }
     .books {
-      background-image: url("/pictures/books2.jpg");
-      height: 400px;
-      background-size: cover;
-      overflow: scroll;
+      background-image: url("/pictures/book3.jpg");
     }
 
   }
