@@ -7754,7 +7754,11 @@ body .back {
 }
 
 body .create_acct {
+<<<<<<< HEAD
   margin-left: -20px;
+=======
+  margin-left: -25px;
+>>>>>>> efbb8c0fc62dc73b75496c9a91864626b812438b
 }
 
 body .inactive:hover {
@@ -7789,7 +7793,11 @@ body .lists .headings {
   color: white;
 }
 
+<<<<<<< HEAD
 body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
+=======
+body .lists .restaurants, body .lists .movies, body .lists .purchases, body .lists .books {
+>>>>>>> efbb8c0fc62dc73b75496c9a91864626b812438b
   overflow: scroll;
   overflow-x: hidden;
   height: 400px;
@@ -7798,10 +7806,14 @@ body .lists .restaurants, body .lists .movies, body .lists .products, body .list
   border-radius: 6px;
 }
 
-body .lists .restaurants .delete_button, body .lists .movies .delete_button, body .lists .products .delete_button, body .lists .books .delete_button {
+body .lists .restaurants .delete_button, body .lists .movies .delete_button, body .lists .purchases .delete_button, body .lists .books .delete_button {
   background: none;
   padding: 0px;
   border: none;
+}
+
+body .ui-sortable {
+  min-height: 300px;
 }
 
 body .restaurants {
@@ -7812,7 +7824,7 @@ body .movies {
   background-image: url("/pictures/film4.jpg");
 }
 
-body .products {
+body .purchases {
   background-image: url("/pictures/shopping.jpg");
 }
 
@@ -7820,10 +7832,22 @@ body .books {
   background-image: url("/pictures/book3.jpg");
 }
 
-#list_container {
+body #space_for_form {
+  height: 40px;
+}
+
+body #list_container {
   width: 750px;
 }
 
-.hide_display {
+body .hide_display {
   display: none;
+}
+
+body .delete_button {
+  display: none;
+}
+
+body .delete_item:hover > .delete_button {
+  display: inline;
 }

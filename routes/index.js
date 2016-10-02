@@ -29,7 +29,7 @@ module.exports = (app, knex) => {
     let object = req.body;
     let obj = {};
     itemMethods.getListId(userId, (err, info) => {
-    if (err) return console.log(err);
+      if (err) return console.log(err);
       info.forEach(function(each) {
         let listType = each.type;
         let listId = each.id;
@@ -46,12 +46,37 @@ module.exports = (app, knex) => {
   });
 
 
-  app.delete('/delete/:id', (req, res) => {
+  app.post("/updateTable", (req, res) => {
+    let oldType = req.body.parentName.replace(/col-md-3 /g, '');
+    let oldTypeNoS = req.body.parentName.replace(/col-md-3 /g, '').slice(0, -1);
+    let newType = req.body.targetName.replace(/col-md-3 /g, '');
+    let newTypeNoS = req.body.targetName.replace(/col-md-3 /g, '').slice(0, -1);
+    let itemName = req.body.itemName.replace(/\s\s*$/, '').replace(/^\s\s*/, '');
+    let userId = req.user[0].id;
+    let obj = {};
+    itemMethods.getListId(userId, (err, info) => {
+      if (err) return console.log(err);
+      info.forEach(function(each) {
+        let listType = each.type;
+        let listId = each.id;
+        obj[listType] = listId;
+      })
+      if (!obj[newType]) {
+        console.error('Not Found.');
+      } else {
+        console.log(obj[newType], itemName, oldTypeNoS, newTypeNoS);
+        itemMethods.updateItem(obj[newType], itemName, oldTypeNoS, newTypeNoS);
+      }
+    })
+  });
+
+  app.delete("/delete/:id", (req, res) => {
     if (!req.user) res.redirect('/login');
     itemMethods.deleteItem(req.params.id, (err, result) => {
       res.redirect('/');
     });
   });
+
   return router;
 }
 
