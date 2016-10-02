@@ -6,6 +6,7 @@
     <!-- styling -->
     <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <script src="https://use.fontawesome.com/a0cd422649.js"></script>
 
     <!-- javascript -->
     <script type="text/javascript" src="/vendor/underscore-min.js"></script>
@@ -83,11 +84,15 @@
         <div class="row">
           <div class="col-md-3 restaurants">
             <ul class="list-unstyled restaurant">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
-                <li> <%=count%>: <%=item.name%> </li>
-                <%count ++;%>
+                <li> <%=item.name%>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -98,11 +103,15 @@
           <div class="col-md-3 movies">
 
             <ul class="list-unstyled movie">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
-                <li> <%=count%>: <%= item.name %> </li>
-                <%count ++;%>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -111,11 +120,15 @@
           <div class="col-md-3 products">
 
             <ul class="list-unstyled product">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
-                <li> <%=count%>: <%= item.name %> </li>
-                <%count ++;%>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -124,11 +137,15 @@
           <div class="col-md-3 books">
 
             <ul class="list-unstyled book">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
-                <li> <%=count%>: <%= item.name %> </li>
-                <%count ++;%>
+                <li> <%= item.name %>
+                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                  <button class="delete_button" type="submit">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </form>
+                </li>
               <%  } %>
               <% }) %>
             </ul>

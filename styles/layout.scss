@@ -47,9 +47,6 @@ body {
       color: white;
     }
 
-    /*.col-md-3 {
-      height: 500px;
-    }*/
     .restaurants, .movies, .products, .books{
       overflow: scroll;
       overflow-x: hidden;
@@ -57,7 +54,13 @@ body {
       background-size: cover;
       border: 1.5px solid #59CDCD;
       border-radius: 6px;
+      .delete_button{
+        background: none;
+        padding: 0px;
+        border: none;
+      }
     }
+  }
     .restaurants {
       background-image: url("/pictures/restaurant.jpg");
     }
@@ -70,16 +73,19 @@ body {
     .books {
       background-image: url("/pictures/book3.jpg");
     }
-
   }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0bf80ab743b60bdd142d4e50fba4f7866ce1d95a
 
   #list_container {
     width: 750px;
   }
 
   .hide_display {
-    display:none;
+    display: none;
   }
 
 
-}

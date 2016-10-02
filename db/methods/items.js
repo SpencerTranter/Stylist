@@ -28,12 +28,12 @@ insertItem: function(user_list_id, item_type, item_name, cb) {
   .asCallback(cb);
 },
 
-// deleteItem: function(item_id, cb) {
-//   knex('items')
-//   .where('id', '=', item_id)
-//   .del()
-//   .asCallback(cb);
-// },
+deleteItem: function(item_id, cb) {
+  knex('items')
+  .where('id', '=', item_id)
+  .del()
+  .asCallback(cb);
+},
 
 getListId: function(user_id, cb) {
   knex.select('id', 'type')
