@@ -17,6 +17,7 @@ body {
   }
   .create_acct {
     margin-left: -25px;
+
   }
 
   .inactive:hover {
@@ -47,7 +48,9 @@ body {
       color: white;
     }
 
+
     .restaurants, .movies, .purchases, .books {
+
       overflow: scroll;
       overflow-x: hidden;
       height: 400px;
@@ -79,10 +82,6 @@ body {
       background-image: url("/pictures/book3.jpg");
     }
 
-
-  #space_for_form {
-    height: 40px;
-  }
 
   #list_container {
     width: 750px;

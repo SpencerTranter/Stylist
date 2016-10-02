@@ -24,9 +24,9 @@ getItemId: function(list_id, item_name, cb) {
 },
 
 insertItem: function(user_list_id, item_type, item_name, cb) {
-  knex('items')
+  return knex('items')
   .insert([{list_id: user_list_id, type: item_type, name: item_name}])
-  .asCallback(cb);
+  .returning('id');
 },
 
 deleteItem: function(item_id, cb) {

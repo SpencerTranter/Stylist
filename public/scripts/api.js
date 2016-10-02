@@ -29,14 +29,18 @@ $(function(){
         console.log("Search results (movie, purchases, restaurant, book)", data);
 
         $('#list_container').empty();
+
         for (let i in data.search_results) {
           let types = ['Restaurant', 'Movie', 'Book', 'Purchase'];
           let user_data = data.search_results[i];
-          console.log(user_data);
+          //console.log(user_data);
           if (data.search_results[i]) {
             show_to_user(types[i], data.search_results[i]);
           }
-          console.log("Array", data.search_results);
+          //console.log("Array", data.search_results);
+        }
+        if ($('#list_container').is(':empty')){
+          alert("Sorry, no results");
         }
 
         }
