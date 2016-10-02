@@ -7740,9 +7740,6 @@ body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
   color: #828282;
-  /*.delete_button:hover {
-    display: none;
-  }*/
 }
 
 body .inactive {
@@ -7840,5 +7837,9 @@ body .hide_display {
 }
 
 body .delete_button {
-  /*display: ;*/
+  display: none;
+}
+
+body .delete_item:hover > .delete_button {
+  display: inline;
 }

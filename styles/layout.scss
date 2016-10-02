@@ -93,11 +93,11 @@ body {
   }
 
   .delete_button {
-    /*display: ;*/
+    display: none;
   }
 
-  /*.delete_button:hover {
-    display: none;
-  }*/
+  .delete_item:hover > .delete_button {
+    display: inline;
+  }
 }
 
