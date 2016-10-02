@@ -9,8 +9,11 @@ module.exports = (app, knex) => {
     if (!req.user) res.redirect('/login');
     let search_text = req.body.search;
 
-    Promise.all([getRestaurants(search_text), getMovies(search_text.replace(/\+/g, ' ')), getBooks(search_text), getPurchases(search_text)])
-    .then(function(result) {
+    Promise.all([
+      getRestaurants(search_text),
+      getMovies(search_text.replace(/\+/g, ' ')),
+      getBooks(search_text), getPurchases(search_text)])
+      .then(function(result) {
       res.json({search_results: result});
     });
   });
