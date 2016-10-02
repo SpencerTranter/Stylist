@@ -15,12 +15,13 @@ module.exports = (knex) => ({
 //   .asCallback(cb);
 // },
 
-// getItem: function(item_id, cb) {
-//   knex('items')
-//   .select('*')
-//   .where('id', '=', item_id)
-//   .asCallback(cb);
-// },
+getItemId: function(list_id, item_name, cb) {
+  knex('items')
+  .select('id', 'name')
+  .where('list_id', '=', list_id)
+  .andWhere('name', '=', item_name)
+  .asCallback(cb);
+},
 
 insertItem: function(user_list_id, item_type, item_name, cb) {
   knex('items')
@@ -30,9 +31,9 @@ insertItem: function(user_list_id, item_type, item_name, cb) {
 
 deleteItem: function(item_id, cb) {
   knex('items')
-  .where('id', '=', item_id)
-  .del()
-  .asCallback(cb);
+    .where('id', '=', item_id)
+    .del()
+    .asCallback(cb);
 },
 
 getListId: function(user_id, cb) {
@@ -48,16 +49,15 @@ getAll: function(user_id, cb) {
     .where('lists.user_id', '=', user_id).asCallback(cb);
 },
 
-updateItem: function(list_id, itemName, oldList, newList, cb) {
-  console.log(list_id, itemName, oldList, newList);
+updateItem: function(item_id, item_name, new_list_id, new_list_type, cb) {
   knex('items')
-    .where('name', '=', itemName)
-    .andWhere('type', '=', oldList)
+    .where('id', '=', item_id)
+    .andWhere('name', '=', item_name)
     .update({
       'id': undefined,
-      'list_id': list_id,
-      'type': newList,
-      'name': itemName
+      'list_id': new_list_id,
+      'type': new_list_type,
+      'name': item_name
     }).asCallback(cb);
 }
 
