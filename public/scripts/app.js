@@ -41,7 +41,7 @@ $(() => {
           .appendTo(".list-unstyled.book");
         } else if (type === 'Purchase') {
           $("<li>" + name + delete_button + "</li>")
-          .appendTo(".list-unstyled.product");
+          .appendTo(".list-unstyled.purchase");
         } else if (type === 'Restaurant') {
           $("<li>" + name + delete_button + "</li>")
           .appendTo(".list-unstyled.restaurant");

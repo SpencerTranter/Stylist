@@ -1,7 +1,7 @@
 
   $(function(){
 
-    $( ".restaurant, .movie, .product, .book" ).sortable({
+    $( ".restaurant, .movie, .purchase, .book" ).sortable({
       connectWith: ".list-unstyled",
       stop: function(event, ui) {
         let parentName = event.target.parentElement.className;

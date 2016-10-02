@@ -7785,20 +7785,16 @@ body .lists .headings {
   color: white;
 }
 
-body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
-<<<<<<< HEAD
-  overflow-y: scroll;
-=======
+body .lists .restaurants, body .lists .movies, body .lists .purchases, body .lists .books {
   overflow: scroll;
   overflow-x: hidden;
->>>>>>> 0bf80ab743b60bdd142d4e50fba4f7866ce1d95a
   height: 400px;
   background-size: cover;
   border: 1.5px solid #59CDCD;
   border-radius: 6px;
 }
 
-body .lists .restaurants .delete_button, body .lists .movies .delete_button, body .lists .products .delete_button, body .lists .books .delete_button {
+body .lists .restaurants .delete_button, body .lists .movies .delete_button, body .lists .purchases .delete_button, body .lists .books .delete_button {
   background: none;
   padding: 0px;
   border: none;
@@ -7808,23 +7804,15 @@ body .restaurants {
   background-image: url("/pictures/restaurant.jpg");
 }
 
-
-body .lists .movies {
-
 body .movies {
-
   background-image: url("/pictures/film4.jpg");
 }
 
-body .products {
+body .purchases {
   background-image: url("/pictures/shopping.jpg");
 }
 
-
-body .lists .books {
-
 body .books {
-
   background-image: url("/pictures/book3.jpg");
 }
 

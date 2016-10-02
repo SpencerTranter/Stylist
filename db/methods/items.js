@@ -44,17 +44,20 @@ getListId: function(user_id, cb) {
 getAll: function(user_id, cb) {
   knex.select('*')
     .from('lists')
-    .leftJoin('items', 'lists.id', 'items.id')
+    .leftJoin('items', 'lists.id', 'items.list_id')
     .where('lists.user_id', '=', user_id).asCallback(cb);
 },
 
-updateItem: function(list_id, item, oldList, newList, cb) {
+updateItem: function(list_id, itemName, oldList, newList, cb) {
+  console.log(list_id, itemName, oldList, newList);
   knex('items')
-    .where('name', '=', item)
-    .andWhere('type', '=', oldList)
+    .where('name', '=', itemName)
+    .where('type', '=', oldList)
     .update({
-      type: newList,
-      list_id: list_id
+      'id': undefined,
+      'list_id': list_id,
+      'type': newList,
+      'name': itemName
     })
 }
 
