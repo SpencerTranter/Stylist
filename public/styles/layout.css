@@ -7824,12 +7824,17 @@ body .books {
   background-image: url("/pictures/book3.jpg");
 }
 
+body .search_results {
+  height: 40px;
+}
+
 body #space_for_form {
   height: 40px;
 }
 
 body #list_container {
-  width: 750px;
+  /*height: 750px;*/
+  /*margin: 0 100px;*/
 }
 
 body .hide_display {

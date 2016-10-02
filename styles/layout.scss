@@ -80,12 +80,16 @@ body {
     }
 
 
+  .search_results {
+    height: 40px;
+  }
   #space_for_form {
     height: 40px;
   }
 
   #list_container {
-    width: 750px;
+    /*height: 750px;*/
+    /*margin: 0 100px;*/
   }
 
   .hide_display {
