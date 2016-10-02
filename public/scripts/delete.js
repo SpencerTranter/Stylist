@@ -5,7 +5,7 @@ $(() => {
 $('.delete_item').on('submit',  function(event) {
   event.preventDefault();
   $.ajax({
-    url:`/delete/:id`,
+    url:'/delete/:id',
     method: 'DELETE'
     }
   })
