@@ -20,6 +20,7 @@
       </header>
 
           <!-- inline form to create an account -->
+        <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
           <form action="/login" method="post" class="login">
@@ -31,13 +32,22 @@
               <label for="password-input">Password</label>
               <input type="password" class="form-control" name="password" id="password" value="stylist">
             </div>
+
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-1">
             <button type="submit" class="btn btn-default inactive">Login</button>
-            <p class="or">or</p>
-            <!-- <input action="/user/new" method="get" class="btn btn-default" type="submit" value="Create account"> -->
-            <a class="btn btn-default inactive" href="/user/new" role="button">Create account</a>
+          </div>
+          <div class="col-md-1">
+            <a class="btn btn-default inactive create_acct" href="/user/new" role="button">Create account</a>
+          </div>
           </form>
           </div>
           <div class="col-md-4"></div>
+        </div>
     </div>
   </body>
 </html>
