@@ -48,28 +48,26 @@ module.exports = (app, knex) => {
     });
   });
 
-
   app.post("/updateTable", (req, res) => {
     let oldType = req.body.parentName.replace(/col-md-3 /g, '');
-    let oldTypeNoS = req.body.parentName.replace(/col-md-3 /g, '').slice(0, -1);
     let newType = req.body.targetName.replace(/col-md-3 /g, '');
     let newTypeNoS = req.body.targetName.replace(/col-md-3 /g, '').slice(0, -1);
     let itemName = req.body.itemName.replace(/\s\s*$/, '').replace(/^\s\s*/, '');
     let userId = req.user[0].id;
     let obj = {};
+
     itemMethods.getListId(userId, (err, info) => {
       if (err) return console.log(err);
       info.forEach(function(each) {
         let listType = each.type;
         let listId = each.id;
         obj[listType] = listId;
+      });
+      itemMethods.getItemId(obj[oldType], itemName, (err, info) => {
+        if (info.length > 0) {
+          itemMethods.updateItem(info[0].id, info[0].name, obj[newType], newTypeNoS);
+        }
       })
-      if (!obj[newType]) {
-        console.error('Not Found.');
-      } else {
-        console.log(obj[newType], itemName, oldTypeNoS, newTypeNoS);
-        itemMethods.updateItem(obj[newType], itemName, oldTypeNoS, newTypeNoS);
-      }
     })
   });
 
