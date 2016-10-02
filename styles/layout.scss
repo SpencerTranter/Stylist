@@ -49,6 +49,7 @@ body {
     }*/
     .restaurants, .movies, .products, .books{
       overflow: scroll;
+      overflow-x: hidden;
       height: 400px;
       background-size: cover;
       border: 1.5px solid #59CDCD;

@@ -7793,6 +7793,7 @@ body .lists .headings {
 
 body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
   overflow: scroll;
+  overflow-x: hidden;
   height: 400px;
   background-size: cover;
   border: 1.5px solid #59CDCD;

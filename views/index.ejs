@@ -75,11 +75,9 @@
           <div class="col-md-3 restaurants">
             <h1>Restaurants</h1>
             <ul class="list-unstyled restaurant">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
-                <li> <%=count%>: <%=item.name%> </li>
-                <%count ++;%>
+                <li> <%=item.name%> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -90,11 +88,9 @@
           <div class="col-md-3 movies">
 
             <ul class="list-unstyled movie">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
-                <li> <%=count%>: <%= item.name %> </li>
-                <%count ++;%>
+                <li> <%= item.name %> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -103,11 +99,9 @@
           <div class="col-md-3 products">
 
             <ul class="list-unstyled product">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
-                <li> <%=count%>: <%= item.name %> </li>
-                <%count ++;%>
+                <li> <%= item.name %> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
               <%  } %>
               <% }) %>
             </ul>
@@ -116,11 +110,9 @@
           <div class="col-md-3 books">
 
             <ul class="list-unstyled book">
-              <% var count = 1; %>
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
-                <li> <%=count%>: <%= item.name %> </li>
-                <%count ++;%>
+                <li> <%= item.name %> <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE"> <button class="delete_button" type="submit">Delete</button> </form> </li>
               <%  } %>
               <% }) %>
             </ul>
