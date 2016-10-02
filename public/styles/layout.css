@@ -7740,9 +7740,6 @@ body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
   color: #828282;
-  /*.or {
-    margin: 10px 10px;
-  }*/
 }
 
 body .inactive {
@@ -7782,9 +7779,6 @@ body .lists {
   font-size: 20px;
   text-align: center;
   overflow: hidden;
-  /*.col-md-3 {
-      height: 500px;
-    }*/
 }
 
 body .lists .headings {
@@ -7792,33 +7786,52 @@ body .lists .headings {
 }
 
 body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
+<<<<<<< HEAD
   overflow-y: scroll;
+=======
+  overflow: scroll;
+  overflow-x: hidden;
+>>>>>>> 0bf80ab743b60bdd142d4e50fba4f7866ce1d95a
   height: 400px;
   background-size: cover;
   border: 1.5px solid #59CDCD;
   border-radius: 6px;
 }
 
-body .lists .restaurants {
+body .lists .restaurants .delete_button, body .lists .movies .delete_button, body .lists .products .delete_button, body .lists .books .delete_button {
+  background: none;
+  padding: 0px;
+  border: none;
+}
+
+body .restaurants {
   background-image: url("/pictures/restaurant.jpg");
 }
 
+
 body .lists .movies {
+
+body .movies {
+
   background-image: url("/pictures/film4.jpg");
 }
 
-body .lists .products {
+body .products {
   background-image: url("/pictures/shopping.jpg");
 }
 
+
 body .lists .books {
+
+body .books {
+
   background-image: url("/pictures/book3.jpg");
 }
 
-body #list_container {
+#list_container {
   width: 750px;
 }
 
-body .hide_display {
+.hide_display {
   display: none;
 }

@@ -23,6 +23,7 @@ module.exports = (app, knex) => {
   });
 
   app.post("/insertItem", (req, res) => {
+    if (!req.user) res.redirect('/login');
     let userId = req.user[0].id
     let types = Object.keys(req.body);
     let object = req.body;
@@ -44,6 +45,7 @@ module.exports = (app, knex) => {
     });
   });
 
+
   app.post("/updateTable", (req, res) => {
     let oldType = req.body.parentName.replace(/col-md-3 /g, '').slice(0, -1);
     let newType = req.body.targetName.replace(/col-md-3 /g, '').slice(0, -1);
@@ -52,6 +54,14 @@ module.exports = (app, knex) => {
     // itemMethods.updateItem(itemName, oldType, newType);
 
   })
+
+  app.delete("/delete/:id", (req, res) => {
+    if (!req.user) res.redirect('/login');
+    itemMethods.deleteItem(req.params.id, (err, result) => {
+      res.redirect('/');
+    });
+  });
+
   return router;
 }
 
