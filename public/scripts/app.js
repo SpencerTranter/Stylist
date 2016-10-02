@@ -24,7 +24,19 @@ $(() => {
       formData[element.dataset.category] = $(element).text();
     });
 
-    console.log("I'm going to send this to you: ", formData);
+    // function createDeleteButton() {
+    //   var compiled = _.template(
+    //     "<form class='delete_item' method='POST' action='delete<%=item.id%>?_method=DELETE'>" +
+    //       "<button class='delete_button' type='submit'>" +
+    //         "Delete" +
+    //       "</button>" +
+    //     "</form>"
+    //   );
+    //   var output = compiled();
+    //   return output;
+    // };
+
+
     $.ajax({
       url:'/insertItem',
       method:'POST',
@@ -32,17 +44,20 @@ $(() => {
       success: checked.each(function append_to_list(index, element) {
         var  type = element.dataset.category
         var name = $(element).text();
+        // let delete_button = "<form class=\"delete_item\" method=\"POST\" action=\"/delete/<%=item.id%>?_method=DELETE\"> <button class=\"delete_button\" type=\"submit\">Delete</button></form>"
+        let delete_button = `<form class='delete_item' method='POST' action='/delete/<%=item.id%>?_method=DELETE'><button class='delete_button' type='submit'>Delete</button>${name}</form>`
+
         if (type === 'Movie') {
-          $("<li>" + name + "</li>")
+          $("<li>" +  delete_button + "</li>")
           .appendTo(".list-unstyled.movie");
         } else if (type === 'Book') {
-          $("<li>" + name + "</li>")
+          $("<li>" +  delete_button + "</li>")
           .appendTo(".list-unstyled.book");
         } else if (type === 'Purchase') {
-          $("<li>" + name + "</li>")
+          $("<li>" +  delete_button + "</li>")
           .appendTo(".list-unstyled.product");
         } else if (type === 'Restaurant') {
-          $("<li>" + name + "</li>")
+          $("<li>" + delete_button + "</li>")
           .appendTo(".list-unstyled.restaurant");
         }
       }),
