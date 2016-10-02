@@ -54,6 +54,7 @@ module.exports = (app, knex) => {
     let itemName = req.body.itemName.replace(/\s\s*$/, '').replace(/^\s\s*/, '');
     let userId = req.user[0].id;
     let obj = {};
+
     itemMethods.getListId(userId, (err, info) => {
       if (err) return console.log(err);
       info.forEach(function(each) {

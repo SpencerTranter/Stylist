@@ -52,7 +52,7 @@ updateItem: function(list_id, itemName, oldList, newList, cb) {
   console.log(list_id, itemName, oldList, newList);
   knex('items')
     .where('name', '=', itemName)
-    .where('type', '=', oldList)
+    .andWhere('type', '=', oldList)
     .update({
       'id': undefined,
       'list_id': list_id,
