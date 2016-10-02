@@ -7820,6 +7820,10 @@ body .books {
   background-image: url("/pictures/book3.jpg");
 }
 
+#space_for_form {
+  height: 40px;
+}
+
 #list_container {
   width: 750px;
 }
