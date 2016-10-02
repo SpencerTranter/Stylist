@@ -45,8 +45,11 @@ module.exports = (app, knex) => {
   });
 
   app.post("/updateTable", (req, res) => {
-    console.log("HEYY IT'S MEE");
-    console.log(req.body);
+    let oldType = req.body.parentName.replace(/col-md-3 /g, '').slice(0, -1);
+    let newType = req.body.targetName.replace(/col-md-3 /g, '').slice(0, -1);
+    let itemName = req.body.itemName;
+
+    // itemMethods.updateItem(itemName, oldType, newType);
 
   })
   return router;
