@@ -14,8 +14,9 @@
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/api.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src = "/scripts/sort.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src = "/scripts/delete.js"></script>
+    <script type="text/javascript" src = "/scripts/sort.js"></script>
   </head>
 
   <body>
@@ -47,10 +48,11 @@
               </div>
             </form>
           </div>
-          <div class="col-md-3"></div>
+          <div class="col-md-4"></div>
         </div>
       </header>
 
+<<<<<<< HEAD
       <!-- search results -->
       <!-- <div class="row search_results">
         <div class="col-md-4"></div>
@@ -75,6 +77,24 @@
       </div>
 
 
+=======
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
+          <article id = 'list_container'>
+            <!-- Append seach results here -->
+          </article>
+          <button id = 'user_choice' class = 'hide_display inactive' type='submit'>Insert!</button>
+          </form>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
+
+
+>>>>>>> 8429d93fcae92c436c32d0e889b8e73f37ceeb32
       <!-- start divs with list objects -->
       <div class="lists">
         <div class="row">
@@ -98,11 +118,11 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
-                  <%=item.name%>
+                  <p class="item_name"><%=item.name%></p>
                 </form>
                 </li>
               <%  } %>
@@ -118,7 +138,7 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'movie') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
@@ -136,7 +156,7 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'purchase') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
@@ -154,7 +174,7 @@
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'book') {  %>
                 <li>
-                <form class="delete_item" method="POST" action="/delete/<%=item.id%>?_method=DELETE">
+                <form class="delete_item" method="DELETE" action="/delete/<%=item.id%>">
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>

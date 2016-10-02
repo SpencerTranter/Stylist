@@ -17,6 +17,7 @@ body {
   }
   .create_acct {
     margin-left: -25px;
+
   }
 
   .inactive:hover {
@@ -47,7 +48,9 @@ body {
       color: white;
     }
 
+
     .restaurants, .movies, .purchases, .books {
+
       overflow: scroll;
       overflow-x: hidden;
       height: 400px;
@@ -78,6 +81,7 @@ body {
     .books {
       background-image: url("/pictures/book3.jpg");
     }
+
 
 
   .search_results {
