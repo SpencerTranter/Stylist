@@ -7800,6 +7800,10 @@ body .lists .restaurants .delete_button, body .lists .movies .delete_button, bod
   border: none;
 }
 
+body .ui-sortable {
+  min-height: 300px;
+}
+
 body .restaurants {
   background-image: url("/pictures/restaurant.jpg");
 }

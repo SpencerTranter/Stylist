@@ -34,7 +34,7 @@ body {
     }
   }
 
-  .lists{
+  .lists {
     margin-top: 60px;
     color: white;
     font-size: 20px;
@@ -44,8 +44,7 @@ body {
       color: white;
     }
 
-    .restaurants, .movies, .purchases, .books{
-
+    .restaurants, .movies, .purchases, .books {
       overflow: scroll;
       overflow-x: hidden;
       height: 400px;
@@ -59,6 +58,11 @@ body {
       }
     }
   }
+
+  .ui-sortable {
+    min-height: 300px;
+  }
+
     .restaurants {
       background-image: url("/pictures/restaurant.jpg");
     }
