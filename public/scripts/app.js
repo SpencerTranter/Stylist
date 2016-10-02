@@ -23,7 +23,8 @@ $(() => {
     checked.each((index, element) => {
       formData[element.dataset.category] = $(element).text();
     });
-
+    $($(".hide_display")).css('display', 'none');
+    $($(".hidden_display")).css('display', 'none');
     console.log("I'm going to send this to you: ", formData);
     $.ajax({
       url:'/insertItem',

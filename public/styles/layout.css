@@ -7796,3 +7796,7 @@ body .or {
 body #list_container {
   width: 750px;
 }
+
+body .hide_display {
+  display: none;
+}
