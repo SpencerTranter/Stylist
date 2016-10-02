@@ -7739,16 +7739,37 @@ button.close {
 body {
   background-color: #59CDCD;
   font-family: 'Monda', Arial, sans-serif;
+  color: #828282;
+  /*.or {
+    margin: 10px 10px;
+  }*/
+}
+
+body .inactive {
+  margin-top: 5px;
+  border: 3px solid white;
+  color: white;
+  background-color: #59CDCD;
+}
+
+body .back {
+  margin-left: 30px;
+}
+
+body .inactive:hover {
+  background-color: white;
+  border: 3px solid white;
+  color: #59CDCD;
 }
 
 body header {
-  width: 75%;
   margin: 0 auto;
 }
 
 body header h1 {
   color: white;
-  font-size: 12em;
+  font-size: 11em;
+  padding-bottom: 20px;
 }
 
 body header #list_title {
@@ -7757,9 +7778,10 @@ body header #list_title {
 
 body .lists {
   margin-top: 60px;
-  color: #FFC5C5;
-  font-size: 2em;
+  color: white;
+  font-size: 20px;
   text-align: center;
+  overflow: hidden;
   /*.col-md-3 {
       height: 500px;
     }*/
@@ -7769,28 +7791,42 @@ body .lists .headings {
   color: white;
 }
 
+body .lists .restaurants, body .lists .movies, body .lists .products, body .lists .books {
+  overflow: scroll;
+  height: 400px;
+  background-size: cover;
+  border: 1.5px solid #59CDCD;
+  border-radius: 6px;
+}
+
 body .lists .restaurants {
   background-image: url("/pictures/restaurant.jpg");
-  height: 500px;
 }
 
 body .lists .movies {
-  background-image: url("/pictures/film2.jpg");
-  height: 500px;
+<<<<<<< HEAD
+  background-image: url("/pictures/film3.jpg");
+  height: 400px;
+  background-size: cover;
+  overflow: scroll;
+=======
+  background-image: url("/pictures/film4.jpg");
+>>>>>>> f686a4b67d10e04ad73f060c764ff12d6412dc28
 }
 
 body .lists .products {
   background-image: url("/pictures/shopping.jpg");
-  height: 500px;
 }
 
 body .lists .books {
+<<<<<<< HEAD
   background-image: url("/pictures/books2.jpg");
-  height: 500px;
-}
-
-body .or {
-  margin: 10px 10px;
+  height: 400px;
+  background-size: cover;
+  overflow: scroll;
+=======
+  background-image: url("/pictures/book3.jpg");
+>>>>>>> f686a4b67d10e04ad73f060c764ff12d6412dc28
 }
 
 body #list_container {
