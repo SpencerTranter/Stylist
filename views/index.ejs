@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/api.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src = "/scripts/sort.js"></script>
   </head>
 
   <body>
@@ -46,14 +47,22 @@
               </div>
             </form>
           </div>
-          <div class="col-md-3"></div>
+          <div class="col-md-4"></div>
         </div>
       </header>
 
-      <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
-      <article id = 'list_container'></article>
-      <button id = 'user_choice' class = 'hide_display' type='submit'>Insert!</button>
-      </form>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
+          <article id = 'list_container'>
+            <!-- Append seach results here -->
+          </article>
+          <button id = 'user_choice' class = 'hide_display inactive' type='submit'>Insert!</button>
+          </form>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
 
 
       <!-- start divs with list objects -->
@@ -74,7 +83,6 @@
         </div>
         <div class="row">
           <div class="col-md-3 restaurants">
-            <h1>Restaurants</h1>
             <ul class="list-unstyled restaurant">
               <% all.forEach(function(item) {  %>
               <%  if (item.type === 'restaurant') {  %>
@@ -149,11 +157,4 @@
   </body>
 </html>
 
-<script>
-  $( function() {
-    $( ".restaurant, .movie, .product, .book" ).sortable({
-      connectWith: ".list-unstyled"
-    }).disableSelection();
-  } );
-  </script>
 

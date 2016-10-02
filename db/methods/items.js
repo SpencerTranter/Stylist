@@ -44,8 +44,10 @@ getListId: function(user_id, cb) {
 getAll: function(user_id, cb) {
   knex.select('*')
     .from('lists')
-    .leftJoin('items', 'lists.id', 'items.list_id')
+    .leftJoin('items', 'lists.id', 'items.id')
     .where('lists.user_id', '=', user_id).asCallback(cb);
 }
+
+// updateItem: function()
 
 })

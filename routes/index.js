@@ -45,6 +45,7 @@ module.exports = (app, knex) => {
     });
   });
 
+
   app.delete("/delete/:id", (req, res) => {
     if (!req.user) res.redirect('/login');
     itemMethods.deleteItem(req.params.id, (err, result) => {
