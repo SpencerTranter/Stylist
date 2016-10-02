@@ -7794,7 +7794,13 @@ body .lists .restaurants, body .lists .movies, body .lists .products, body .list
   border-radius: 6px;
 }
 
-body .lists .restaurants .delete_button, body .lists .movies .delete_button, body .lists .products .delete_button, body .lists .books .delete_button {
+body .lists .restaurants li, body .lists .movies li, body .lists .products li, body .lists .books li {
+  display: inline-block;
+  overflow: auto;
+}
+
+body .lists .restaurants li .delete_button, body .lists .movies li .delete_button, body .lists .products li .delete_button, body .lists .books li .delete_button {
+  float: right;
   background: none;
   padding: 0px;
   border: none;
