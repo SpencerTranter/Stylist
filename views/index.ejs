@@ -52,6 +52,30 @@
         </div>
       </header>
 
+      <!-- search results -->
+      <!-- <div class="row search_results">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 search_results">
+          <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
+            <article id = 'list_container'></article>
+            <button id = 'user_choice' class = 'hide_display' type='submit'>Insert!</button>
+          </form>
+        </div>
+        <div class="col-md-4"></div>
+      </div> -->
+<!--       <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <div id = 'space_for_form'>
+          <form action="/insertItem" method='POST' id='user_choice' class = 'hidden_display'>
+          <article id = 'list_container'></article>
+          <button id ='user_choice' class='hide_display' type='submit'>Insert!</button>
+          </form>
+          </div>
+        </div>
+      </div> -->
+
+
 
       <div class="row">
         <div class="col-md-4"></div>
@@ -95,7 +119,7 @@
                   <button class="delete_button" type="submit">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
-                  <p class="item_name"><%=item.name%></p>
+                  <%=item.name%>
                 </form>
                 </li>
               <%  } %>

@@ -34,7 +34,6 @@ $(() => {
           var  type = element.dataset.category
           console.log(element);
           var name = $(element).text();
-          //let delete_button = "<form class=\"delete_item\" method=\"POST\" action=\"/delete/<%=item.id%>?_method=DELETE\"> <button class=\"delete_button\" type=\"submit\" aria-hidden=true><i class=\"fa fa-trash\" aria-hidden=true></i></button></form>"
           let delete_button =
             `<form class='delete_item' method='DELETE' action='/delete/${itemID}'>
               <button class="delete_button" type="submit"><i class='fa fa-trash' aria-hidden=true></i></button>
