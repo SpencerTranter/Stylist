@@ -7824,10 +7824,6 @@ body .books {
   background-image: url("/pictures/book3.jpg");
 }
 
-body .search_results {
-  height: 40px;
-}
-
 body #space_for_form {
   height: 40px;
 }
