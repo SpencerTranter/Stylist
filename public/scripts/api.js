@@ -41,6 +41,7 @@ $(function(){
         }
         if ($('#list_container').is(':empty')){
           alert("Sorry, no results");
+          $("#main_search")[0].reset();
         }
 
         }

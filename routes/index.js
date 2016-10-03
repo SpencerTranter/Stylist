@@ -39,42 +39,42 @@ module.exports = (app, knex) => {
         let lowerType = `${type.toLowerCase()}s`;
         let lowerTypeNoS = `${type.toLowerCase()}`;
         let list_ID = obj[lowerType];
-        itemMethods.insertItem(list_ID, lowerTypeNoS, object[type]);
+        itemMethods.insertItem(list_ID, lowerTypeNoS, object[type])
+        .then((id) => {
+          res.json(id[0]);
+        });
       });
       // return a 200 or something after saving
     });
   });
 
-
   app.post("/updateTable", (req, res) => {
     let oldType = req.body.parentName.replace(/col-md-3 /g, '');
-    let oldTypeNoS = req.body.parentName.replace(/col-md-3 /g, '').slice(0, -1);
     let newType = req.body.targetName.replace(/col-md-3 /g, '');
     let newTypeNoS = req.body.targetName.replace(/col-md-3 /g, '').slice(0, -1);
     let itemName = req.body.itemName.replace(/\s\s*$/, '').replace(/^\s\s*/, '');
     let userId = req.user[0].id;
     let obj = {};
+
     itemMethods.getListId(userId, (err, info) => {
       if (err) return console.log(err);
       info.forEach(function(each) {
         let listType = each.type;
         let listId = each.id;
         obj[listType] = listId;
+      });
+      itemMethods.getItemId(obj[oldType], itemName, (err, info) => {
+        if (info.length > 0) {
+          itemMethods.updateItem(info[0].id, info[0].name, obj[newType], newTypeNoS);
+        }
       })
-      if (!obj[newType]) {
-        console.error('Not Found.');
-      } else {
-        console.log(obj[newType], itemName, oldTypeNoS, newTypeNoS);
-        itemMethods.updateItem(obj[newType], itemName, oldTypeNoS, newTypeNoS);
-      }
     })
   });
 
   app.delete("/delete/:id", (req, res) => {
     if (!req.user) res.redirect('/login');
-    itemMethods.deleteItem(req.params.id, (err, result) => {
-      res.redirect('/');
-    });
+    itemMethods.deleteItem(req.params.id);
+    res.sendStatus(200);
   });
 
   return router;
