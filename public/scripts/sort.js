@@ -1,6 +1,5 @@
-
+"use strict";
   $(function(){
-
     $( ".list-unstyled" ).sortable({
       connectWith: ".list-unstyled",
       revert: true,
@@ -8,14 +7,10 @@
       dropOnEmpty: true,
       appendTo: '.lists',
       helper: 'clone',
-
-
       stop: function(event, ui) {
         let parentName = event.target.parentElement.className;
         let targetName = ui.item[0].offsetParent.className;
         let itemName = ui.item[0].textContent;
-        console.log('STOPPED', parentName);
-        console.log(itemName, targetName);
 
         $.ajax({
           type: "POST",
@@ -25,5 +20,4 @@
         })
       }
     }).disableSelection();
-
   });

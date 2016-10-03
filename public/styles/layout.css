@@ -7829,7 +7829,8 @@ body #space_for_form {
 }
 
 body #list_container {
-  width: 750px;
+  /*height: 750px;*/
+  /*margin: 0 100px;*/
 }
 
 body .hide_display {
