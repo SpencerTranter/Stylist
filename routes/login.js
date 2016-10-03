@@ -27,12 +27,12 @@ module.exports = (app, knex, passport) => {
     }
   ))
 
-// used to serialize the user for the session
+  //Used to serialize the user for the session
   passport.serializeUser(function(user, done) {
       done(null, user.id);
   });
 
-  // used to deserialize the user
+  //Used to deserialize the user
   passport.deserializeUser(function(id, done) {
       userMethods.getUser(id, function(err, user) {
         if (err) return done(null, false);
@@ -56,4 +56,5 @@ module.exports = (app, knex, passport) => {
     req.session.destroy();
     res.redirect("/login");
   });
+
 }

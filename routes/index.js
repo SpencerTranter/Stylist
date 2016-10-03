@@ -1,8 +1,6 @@
 "use strict";
 
 const express = require('express');
-const router  = express.Router();
-
 
 module.exports = (app, knex) => {
   const itemMethods = require('../db/methods/items.js')(knex);
@@ -12,14 +10,13 @@ module.exports = (app, knex) => {
       res.redirect('/login');
       return;
     }
-
-      itemMethods.getAll(req.user[0].id, (err, all) => {
-        if (err) return console.log(err);
-        res.render("index", {
-          all: all,
-          user_id: req.user[0].id
-        })
-      })
+    itemMethods.getAll(req.user[0].id, (err, all) => {
+      if (err) return console.log(err);
+      res.render("index", {
+        all: all,
+        user_id: req.user[0].id
+      });
+    });
   });
 
   app.post("/insertItem", (req, res) => {
@@ -34,7 +31,7 @@ module.exports = (app, knex) => {
         let listType = each.type;
         let listId = each.id;
         obj[listType] = listId;
-      })
+      });
       types.forEach(function (type) {
         let lowerType = `${type.toLowerCase()}s`;
         let lowerTypeNoS = `${type.toLowerCase()}`;
@@ -77,6 +74,5 @@ module.exports = (app, knex) => {
     res.sendStatus(200);
   });
 
-  return router;
 }
 

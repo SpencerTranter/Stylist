@@ -1,8 +1,6 @@
 "use strict";
 
 const express = require('express');
-// const router  = express.Router();
-
 
 module.exports = (app, knex) => {
   const userMethods = require('../db/methods/users.js')(knex);
@@ -44,7 +42,7 @@ module.exports = (app, knex) => {
   });
 
   let create_list = function(list_type, list_user_id){
-    return {type: list_type, user_id: list_user_id}
+    return {type: list_type, user_id: list_user_id};
   }
-  // return router;
+
 }
