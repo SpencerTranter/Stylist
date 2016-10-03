@@ -1,7 +1,7 @@
 'use strict';
 
 $(() => {
-$('.delete_item').on('submit',  function(event) {
+$('ul').on('submit', '.delete_item',  function(event) {
   var form = this;
   event.preventDefault();
   $.ajax({

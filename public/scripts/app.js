@@ -36,7 +36,7 @@ $(() => {
           var name = $(element).text();
           let delete_button =
             `<form class='delete_item' method='DELETE' action='/delete/${itemID}'>
-              <button class="delete_button" type="submit"><i class='fa fa-trash' aria-hidden=true></i></button>
+              <button class='delete_button' type='submit'><i class='fa fa-trash' aria-hidden=true></i></button>
               ${name}
             </form>`;
 
