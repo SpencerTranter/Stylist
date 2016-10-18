@@ -50,6 +50,7 @@ app.use(passport.session());
 
 // Mount all resource routes
 app.use("/db/methods/users", knex);
+
 require("./routes/api")(app);
 require("./routes/users")(app, knex);
 require("./routes/index")(app, knex);

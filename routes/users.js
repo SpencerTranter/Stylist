@@ -3,6 +3,7 @@
 const express = require('express');
 
 module.exports = (app, knex) => {
+  console.log("!!!!!!!   app is ", !!app, "knex is ", !!knex);
   const userMethods = require('../db/methods/users.js')(knex);
   const listMethods = require('../db/methods/lists.js')(knex);
 
